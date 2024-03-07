@@ -24,6 +24,7 @@ library(countdown)
 library(cowplot)
 library(metathis)
 library(here)
+library(ggrepel)
 
 options(
   htmltools.dir.version = FALSE,
@@ -71,6 +72,23 @@ meta() %>%
 
 # Read in data
 gapminder <- read_csv(here('data', 'gapminder.csv'))
+milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
+milk_region <- milk_production %>%
+    filter(region %in% c(
+        'Pacific', 'Northeast', 'Lake States', 'Mountain')) %>%
+    group_by(year, region) %>%
+    summarise(milk_produced = sum(milk_produced)) %>%
+    ungroup() %>%
+    mutate(label = ifelse(year == max(year), region, NA))
+federal_spending <- read_csv(here::here('data', 'federal_spending_long.csv'))
+federal_spending_summary <- federal_spending %>%
+    mutate(department = fct_other(
+        department, keep = 'DOD')) %>%
+    group_by(department, year) %>%
+    summarise(rd_budget = sum(rd_budget) / 10^3) %>%
+    ungroup() %>%
+    mutate(department = fct_relevel(
+        department, c('Other', 'DOD')))
 ```
 
 background-image: url("images/nasa_global_preview.png")
@@ -1368,6 +1386,69 @@ class: center
 
 ---
 
+class: center, middle, inverse
+
+# Legends suck
+
+---
+
+class: center
+
+# Legends suck
+
+.leftcol[
+
+### Legends require look-up task
+
+```{r fed_spending_legend, echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+ggplot(federal_spending_summary) +
+  geom_area(
+    aes(x = year, y = rd_budget, fill = department)) +
+  scale_y_continuous(
+    expand = expand_scale(mult = c(0, 0.05))) +
+  scale_fill_manual(values = c('grey', 'sienna')) +
+  theme_minimal_hgrid() +
+  labs(
+    x = NULL,
+    y = 'R&D Budget ($ Billions)',
+    fill = 'Department',
+    title = 'Federal R&D spending, 1976 - 2017',
+    subtitle = 'Source: AAAS Historical Trends')
+```
+
+]
+
+--
+
+.rightcol[
+
+### Direct labeling is much better
+
+```{r, fed_spending_annotate, echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+dod_spending <- ggplot(federal_spending_summary) +
+    geom_area(aes(x = year, y = rd_budget,
+                  fill = department)) +
+    annotate(geom = 'text', x = 1995, y = 85,  #<<
+             label = 'Other', size = 6, color = 'black') + #<<
+    annotate(geom = 'text', x = 1995, y = 25, #<<
+             label = 'DOD', size = 6, color = 'white') + #<<
+    scale_y_continuous(
+        expand = expand_scale(mult = c(0, 0.05))) +
+    scale_fill_manual(values = c('grey', 'sienna')) +
+    theme_minimal_hgrid() +
+    theme(legend.position = 'none') +
+    labs(x = NULL,
+         y = 'R&D Budget ($ Billions)',
+         title = 'Federal R&D spending, 1976 - 2017',
+         subtitle = 'Source: AAAS Historical Trends')
+
+dod_spending
+```
+
+]
+
+---
+
 class: middle, center
 
 ## Directly label geoms
@@ -1693,13 +1774,213 @@ countdown(
 
 ---
 
+class: center, inverse, middle
 
+# **Data Viz Goal**:<br>Translate _data_ into _information_
 
+---
 
+class: center
 
+# Translate _data_ into _information_
 
+--
 
+.leftcol[
 
+**Data**
+
+Average student engagement scores
+
+ Class       | Type | City | County
+ ------------|-------------|------|-------
+ Special Ed. | Charter     | 643  | 793
+ Special Ed. | Public      | 735  | 928
+ General Ed. | Charter     | 590  | 724
+ General Ed. | Public      | 863  | 662
+
+]
+
+--
+
+.rightcol[
+
+**Information**
+
+```{r student-engagement-final, echo=FALSE, fig.width=6, fig.height=5}
+engagement <- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'),
+    Highlight = c(0, 0, 0, 1)) %>%
+    gather(Location, Engagement, City:County) %>%
+    mutate(
+      Location = fct_relevel(Location, c('City', 'County')),
+      Highlight = as.factor(Highlight),
+      x = ifelse(Location == 'County', 1, 0))
+engagement_plot <- engagement %>%
+    ggplot(aes(x = x, y = Engagement, group = School, color = Highlight)) +
+    geom_point() +
+    geom_line() +
+    scale_color_manual(values = c('#757575', '#ed573e')) +
+    labs(x = 'Sex', y = 'Engagement',
+         title = paste0('Students in public, general education classes\n',
+                        'in county schools have surprisingly low engagement')) +
+    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
+                       breaks = c(0, 1)) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'County'),
+                    size          = 5,
+                    nudge_x       = 0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.1,
+                    segment.color = NA) +
+    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
+                    data          = subset(engagement, Location == 'City'),
+                    size          = 5,
+                    nudge_x       = -0.25,
+                    hjust         = 1,
+                    segment.color = NA) +
+    theme_cowplot() +
+    background_grid(major = 'x') +
+    theme(axis.line = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = 'none')
+engagement_plot
+```
+
+]
+
+---
+
+# Data exploration: an iterative process
+
+--
+
+.leftcol[
+
+Encode data:
+
+.code60[
+
+```{r}
+engagement_data <- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'))
+engagement_data
+```
+
+]]
+
+--
+
+.rightcol[
+
+Re-format data for plotting:
+
+.code60[
+
+```{r}
+engagement_data <- engagement_data %>%
+    gather(Location, Engagement, City:County) %>%
+    mutate(Location = fct_relevel(
+      Location, c('City', 'County')))
+engagement_data
+```
+
+]]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+
+Initial exploratory plotting:
+
+.code60[
+
+```{r student-engagement-bars1, fig.width=6, fig.height=3}
+engagement_data %>%
+    ggplot() +
+    geom_col(aes(x = Engagement, y = School,
+                 fill = Location),
+             position = 'dodge')
+```
+
+]]
+
+--
+
+.rightcol[
+
+More exploratory plotting:<br>highlight difference
+
+```{r student-engagement-bars2, echo=FALSE, fig.width=6, fig.height=5}
+engagement %>%
+    mutate(Highlight = as.factor(Highlight)) %>%
+    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
+    geom_point() +
+    geom_line() +
+    labs(x='Sex', y='Engagement')
+```
+
+]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+
+Directly label figure:
+
+```{r student-engagement-bars3, echo=FALSE, fig.width=6, fig.height=5}
+engagement %>%
+    mutate(Highlight = as.factor(Highlight)) %>%
+    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
+    geom_point() +
+    geom_line() +
+    labs(x='Location', y='Engagement') +
+    theme_cowplot() +
+    scale_x_continuous(limits = c(-0.2, 2), labels = c('City', 'County'),
+                       breaks = c(0, 1)) +
+    theme(legend.position = 'none') +
+    geom_text_repel(aes(label = School, color = as.factor(School)),
+                    data          = subset(engagement, Location == 'County'),
+                    size          = 5,
+                    nudge_x       = 0.2,
+                    hjust         = 0,
+                    segment.color = NA)
+```
+
+]
+
+--
+
+.rightcol[
+
+Remove unnecessary axes, change colors, fix labels:
+
+```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
+```
+
+]
+
+---
+
+class: center, middle, inverse
+
+# Your message should be _obvious_
 
 ---
 
@@ -1755,7 +2036,623 @@ class: center
 
 ]
 
+---
+
+class: center, middle, inverse
+
+# Text is usually the single most important component on your chart
+
+---
+
+class: middle
+
+<center>
+<img src="images/eye_tracking.gif" width=900>
+</center>
+
+.font80[Michelle Borkin, et al. (2015) [Beyond Memorability: Visualization Recognition and Recall](https://ieeexplore.ieee.org/document/7192646)]
+
+---
+
+class: center
+
+.leftcol60[
+
+<center>
+<img src="images/titles_matter.jpg" width=100%>
+</center>
+
+]
+
+.rightcol40[
+
+## Titles matter
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+Source: https://www.reddit.com/r/dataisugly/comments/odk65x/this_was_not_the_right_headline_to_go_along_with
+
+]
+
+---
+
+.leftcol60[
+
+<center>
+<img src="images/protein.png" width=100%>
+</center>
+
+]
+
+.rightcol40[
+
+## Good annotations should tell a story
+
+<br><br><br><br><br><br><br><br><br><br>
+
+Source: https://ourworldindata.org/less-meat-or-sustainable-meat
+
+]
 
 
 
 
+---
+
+class: inverse, center, middle
+
+# Fonts matter
+
+.leftcol[
+
+<center>
+<img src="images/fonts_matter_fast_taco.jpg" width=500>
+</center>
+
+"Fast Taco"
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/fonts_matter_megaflicks.jpg" width=500>
+</center>
+
+"Mega Flicks"
+
+]
+
+---
+
+class: inverse, center, middle
+
+<center>
+<img src="images/fonts_matter.jpg" width=500>
+</center>
+
+---
+
+# .center[Use fonts with **same-height** numbers]
+
+<br>
+
+.leftcol35[.right[
+
+## "Oldstyle" (bad)
+
+<br>
+
+## Lining (good)
+
+]]
+
+.rightcol65[
+
+<img src="images/font_oldstyle1.jpg" width=500>
+
+]
+
+---
+
+# .center[Use fonts with **same-width** numbers]
+
+<br>
+
+.leftcol40[.right[
+
+## "Proportional" (bad)
+
+<br>
+
+## "Tabular" (good)
+
+]]
+
+.rightcol60[
+
+<img src="images/font_oldstyle2.jpg" width=500>
+
+]
+
+---
+
+## .center[Font families you should consider using]
+
+.leftcol30[.font120[
+
+<p style="font-family: Roboto;">Roboto</p>
+
+<p style="font-family: Source Code Pro;">Source</p>
+
+<p style="font-family: Fira Sans;">Fira</p>
+
+<p style="font-family: Alegreya;">Alegreya</p>
+
+<p style="font-family: Lato;">Lato</p>
+
+]]
+
+.rightcol70[
+
+Download:
+
+- Individually from https://fonts.google.com/
+- All of these with [this zip file](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/fonts.zip)
+
+]
+
+---
+
+## Use fonts to create **hierarchy**
+
+.leftcol[
+
+```
+# Hierarchy
+
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+```
+
+]
+
+.rightcol[
+
+# Hierarchy
+
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+
+]
+
+---
+
+.leftcol[
+
+Title<br>This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+# Size
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+**Weight**
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+.red[Color]
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Spacing
+
+<br>
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Typeface
+
+<p style="font-family: Alegreya;">
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</p>
+
+]
+
+---
+
+.leftcol[
+
+<h2 style="font-family: Roboto Condensed; color: #a5442b;">Title</h2>
+<h3 style="font-family: Alegreya;">Subtitle</h3>
+
+<p style="font-family: Roboto;">
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</p>
+
+]
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# Show amounts with:
+
+.cols3[
+
+<br>
+<center>
+<img src="images/bar.png" width=350>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/dots.png" width=280>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/lollipop.png">
+<center>
+
+]
+
+---
+
+class: center, middle
+
+.cols3[
+
+<center>
+<img src="images/bar.png">
+<center>
+
+## Bar chart
+
+<center>
+<img src="figs/federal_spending_bars.png">
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/dots.png" width=160>
+<center>
+
+## Dot chart
+
+<center>
+<img src="figs/federal_spending_dots.png">
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/lollipop_rotated.png" width=330>
+<center>
+
+## Lollipop chart
+
+<center>
+<img src="figs/federal_spending_lollipop.png">
+<center>
+
+]
+
+---
+
+class: center
+
+## Bars are good for highlighting specific categories
+
+<center>
+<img src="figs/federal_spending_bars_highlight_title.png" width=700>
+<center>
+
+---
+
+## Use lollipops when:
+
+### - The bars are overwhelming<br> - You're not highlighting categories
+
+<!-- Idea from https://www.data-to-viz.com/graph/lollipop.html -->
+
+.leftcol[
+
+<center>
+<img src="figs/life_expectancy_bars.png" width=400>
+<center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="figs/life_expectancy_lollipop.png" width=400>
+<center>
+
+]
+
+---
+
+class: center
+
+## Or use dots and don't set axis to 0
+
+.leftcol[
+
+<center>
+<img src="figs/life_expectancy_lollipop.png" width=500>
+<center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="figs/life_expectancy_dots.png" width=500>
+<center>
+
+]
+
+---
+
+class: inverse, middle, center
+
+# Show proportions with:
+
+.cols3[
+
+<br>
+<center>
+<img src="images/bar.png" width=350>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/pie.png" width=300>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/waffles.png">
+<center>
+
+]
+
+---
+
+class: center, middle
+
+.cols3[
+
+<center>
+<img src="images/bar.png">
+<center>
+
+## Bar charts
+
+<center>
+<img src="figs/milk_2017_bars_stacked_rotated.png">
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/pie.png" width=160>
+<center>
+
+## Pie charts
+
+<center>
+<img src="figs/milk_2017_pie-1.png" width=300>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/waffles.png" width=180>
+<center>
+
+## Waffle charts
+
+<center>
+<img src="figs/milk_waffle_2017.png" width=300>
+<center>
+
+]
+
+---
+
+class: center
+
+## Stacked bars: better with only a few categories
+
+.leftcol[
+
+<center>
+<img src="figs/milk_2017_bars_stacked.png" width=320>
+</center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="figs/milk_2017_bars_stacked_toomany.png" width=320>
+</center>
+
+]
+
+---
+
+class: center 
+
+# Stacked vs. Dodged Bars 
+
+.leftcol[
+
+### Stacked is better for comparing **total**
+
+<center>
+<img src="figs/milk_compare_bars_stacked.png">
+</center>
+
+]
+
+.rightcol[
+
+### Dodged is better for comparing **parts**
+
+<center>
+<img src="figs/milk_compare_bars_dodged.png">
+</center>
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
+
+<center>
+<img src="images/bechdel-stacked.png" width="550">
+</center>
+
+.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
+
+]
+
+.rightcol40[
+
+### - **2 to 3 groups**
+### - Proportions over time
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
+
+<center>
+<img src="images/Coles-Graph.png" width="600">
+</center>
+
+.font80[https://www.perceptualedge.com/blog/?p=2239]
+
+]
+
+.rightcol40[
+
+### - 2 to 3 groups
+### - **Proportions over time**
+
+]
+
+---
+
+class: center
+
+## Pies are still useful if the sum of components matters
+
+.cols3[
+
+<center>
+<img src="images/bundestag-bars-stacked.png" width=250>
+<center>
+
+]
+
+.cols3[
+
+<br>
+<center>
+<img src="images/bundestag-bars-dodged.png">
+<center>
+
+]
+
+.cols3[
+
+<br>
+<br>
+<center>
+<img src="images/bundestag-pie.png">
+<center>
+
+]
+
+---
+
+class: center
+
+## The best pies are **square pies**
+
+<center>
+<img src="images/square-pies-rule.png" width="700">
+</center>
+
+.font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]

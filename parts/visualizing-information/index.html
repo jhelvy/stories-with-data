@@ -1536,6 +1536,36 @@ class: inverse
 
 ---
 
+class: center, middle, inverse
+
+# Legends suck
+
+---
+
+class: center
+
+# Legends suck
+
+.leftcol[
+
+### Legends require look-up task
+
+&lt;img src="figs/fed_spending_legend-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+### Direct labeling is much better
+
+&lt;img src="figs/fed_spending_annotate-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
 class: middle, center
 
 ## Directly label geoms
@@ -1771,7 +1801,7 @@ For your "bad" visualization:
 
 3) Suggest at least two improvements
 
-<div class="countdown" id="timer_6f777f29" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
+<div class="countdown" id="timer_c681bc93" data-warn-when="30" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1887,7 +1917,7 @@ class: middle
 
 class: inverse, center
 
-<div class="countdown" id="timer_779ebf88" data-warn-when="30" data-update-every="1" tabindex="0" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;">
+<div class="countdown" id="timer_74216fb9" data-warn-when="30" data-update-every="1" tabindex="0" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1913,13 +1943,166 @@ class: inverse, middle
 
 ---
 
+class: center, inverse, middle
+
+# **Data Viz Goal**:&lt;br&gt;Translate _data_ into _information_
+
+---
+
+class: center
+
+# Translate _data_ into _information_
+
+--
+
+.leftcol[
+
+**Data**
+
+Average student engagement scores
+
+ Class       | Type | City | County
+ ------------|-------------|------|-------
+ Special Ed. | Charter     | 643  | 793
+ Special Ed. | Public      | 735  | 928
+ General Ed. | Charter     | 590  | 724
+ General Ed. | Public      | 863  | 662
+
+]
+
+--
+
+.rightcol[
+
+**Information**
+
+&lt;img src="figs/student-engagement-final-1.png" width="432" /&gt;
+
+]
+
+---
+
+# Data exploration: an iterative process
+
+--
+
+.leftcol[
+
+Encode data:
+
+.code60[
 
 
+```r
+engagement_data &lt;- data.frame(
+    City   = c(643, 735, 590, 863),
+    County = c(793, 928, 724, 662),
+    School = c('Special Ed., Charter', 'Special Ed., Public',
+               'General Ed., Charter', 'General Ed., Public'))
+engagement_data
+```
+
+```
+#&gt;   City County               School
+#&gt; 1  643    793 Special Ed., Charter
+#&gt; 2  735    928  Special Ed., Public
+#&gt; 3  590    724 General Ed., Charter
+#&gt; 4  863    662  General Ed., Public
+```
+
+]]
+
+--
+
+.rightcol[
+
+Re-format data for plotting:
+
+.code60[
 
 
+```r
+engagement_data &lt;- engagement_data %&gt;%
+    gather(Location, Engagement, City:County) %&gt;%
+    mutate(Location = fct_relevel(
+      Location, c('City', 'County')))
+engagement_data
+```
+
+```
+#&gt;                 School Location Engagement
+#&gt; 1 Special Ed., Charter     City        643
+#&gt; 2  Special Ed., Public     City        735
+#&gt; 3 General Ed., Charter     City        590
+#&gt; 4  General Ed., Public     City        863
+#&gt; 5 Special Ed., Charter   County        793
+#&gt; 6  Special Ed., Public   County        928
+#&gt; 7 General Ed., Charter   County        724
+#&gt; 8  General Ed., Public   County        662
+```
+
+]]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+
+Initial exploratory plotting:
+
+.code60[
 
 
+```r
+engagement_data %&gt;%
+    ggplot() +
+    geom_col(aes(x = Engagement, y = School,
+                 fill = Location),
+             position = 'dodge')
+```
 
+&lt;img src="figs/student-engagement-bars1-1.png" width="432" /&gt;
+
+]]
+
+--
+
+.rightcol[
+
+More exploratory plotting:&lt;br&gt;highlight difference
+
+&lt;img src="figs/student-engagement-bars2-1.png" width="432" /&gt;
+
+]
+
+---
+
+# Data exploration: an iterative process
+
+.leftcol[
+
+Directly label figure:
+
+&lt;img src="figs/student-engagement-bars3-1.png" width="432" /&gt;
+
+]
+
+--
+
+.rightcol[
+
+Remove unnecessary axes, change colors, fix labels:
+
+&lt;img src="figs/unnamed-chunk-21-1.png" width="432" /&gt;
+
+]
+
+---
+
+class: center, middle, inverse
+
+# Your message should be _obvious_
 
 ---
 
@@ -1975,10 +2158,626 @@ class: center
 
 ]
 
+---
+
+class: center, middle, inverse
+
+# Text is usually the single most important component on your chart
+
+---
+
+class: middle
+
+&lt;center&gt;
+&lt;img src="images/eye_tracking.gif" width=900&gt;
+&lt;/center&gt;
+
+.font80[Michelle Borkin, et al. (2015) [Beyond Memorability: Visualization Recognition and Recall](https://ieeexplore.ieee.org/document/7192646)]
+
+---
+
+class: center
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/titles_matter.jpg" width=100%&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol40[
+
+## Titles matter
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Source: https://www.reddit.com/r/dataisugly/comments/odk65x/this_was_not_the_right_headline_to_go_along_with
+
+]
+
+---
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/protein.png" width=100%&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol40[
+
+## Good annotations should tell a story
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Source: https://ourworldindata.org/less-meat-or-sustainable-meat
+
+]
 
 
 
 
+---
+
+class: inverse, center, middle
+
+# Fonts matter
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="images/fonts_matter_fast_taco.jpg" width=500&gt;
+&lt;/center&gt;
+
+"Fast Taco"
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="images/fonts_matter_megaflicks.jpg" width=500&gt;
+&lt;/center&gt;
+
+"Mega Flicks"
+
+]
+
+---
+
+class: inverse, center, middle
+
+&lt;center&gt;
+&lt;img src="images/fonts_matter.jpg" width=500&gt;
+&lt;/center&gt;
+
+---
+
+# .center[Use fonts with **same-height** numbers]
+
+&lt;br&gt;
+
+.leftcol35[.right[
+
+## "Oldstyle" (bad)
+
+&lt;br&gt;
+
+## Lining (good)
+
+]]
+
+.rightcol65[
+
+&lt;img src="images/font_oldstyle1.jpg" width=500&gt;
+
+]
+
+---
+
+# .center[Use fonts with **same-width** numbers]
+
+&lt;br&gt;
+
+.leftcol40[.right[
+
+## "Proportional" (bad)
+
+&lt;br&gt;
+
+## "Tabular" (good)
+
+]]
+
+.rightcol60[
+
+&lt;img src="images/font_oldstyle2.jpg" width=500&gt;
+
+]
+
+---
+
+## .center[Font families you should consider using]
+
+.leftcol30[.font120[
+
+&lt;p style="font-family: Roboto;"&gt;Roboto&lt;/p&gt;
+
+&lt;p style="font-family: Source Code Pro;"&gt;Source&lt;/p&gt;
+
+&lt;p style="font-family: Fira Sans;"&gt;Fira&lt;/p&gt;
+
+&lt;p style="font-family: Alegreya;"&gt;Alegreya&lt;/p&gt;
+
+&lt;p style="font-family: Lato;"&gt;Lato&lt;/p&gt;
+
+]]
+
+.rightcol70[
+
+Download:
+
+- Individually from https://fonts.google.com/
+- All of these with [this zip file](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/fonts.zip)
+
+]
+
+---
+
+## Use fonts to create **hierarchy**
+
+.leftcol[
+
+```
+# Hierarchy
+
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+```
+
+]
+
+.rightcol[
+
+# Hierarchy
+
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+
+]
+
+---
+
+.leftcol[
+
+Title&lt;br&gt;This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+# Size
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+**Weight**
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+.red[Color]
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Spacing
+
+&lt;br&gt;
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Typeface
+
+&lt;p style="font-family: Alegreya;"&gt;
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+&lt;/p&gt;
+
+]
+
+---
+
+.leftcol[
+
+&lt;h2 style="font-family: Roboto Condensed; color: #a5442b;"&gt;Title&lt;/h2&gt;
+&lt;h3 style="font-family: Alegreya;"&gt;Subtitle&lt;/h3&gt;
+
+&lt;p style="font-family: Roboto;"&gt;
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+&lt;/p&gt;
+
+]
+
+
+
+
+
+
+---
+
+class: inverse, middle, center
+
+# Show amounts with:
+
+.cols3[
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/bar.png" width=350&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/dots.png" width=280&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/lollipop.png"&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center, middle
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/bar.png"&gt;
+&lt;center&gt;
+
+## Bar chart
+
+&lt;center&gt;
+&lt;img src="figs/federal_spending_bars.png"&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/dots.png" width=160&gt;
+&lt;center&gt;
+
+## Dot chart
+
+&lt;center&gt;
+&lt;img src="figs/federal_spending_dots.png"&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/lollipop_rotated.png" width=330&gt;
+&lt;center&gt;
+
+## Lollipop chart
+
+&lt;center&gt;
+&lt;img src="figs/federal_spending_lollipop.png"&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center
+
+## Bars are good for highlighting specific categories
+
+&lt;center&gt;
+&lt;img src="figs/federal_spending_bars_highlight_title.png" width=700&gt;
+&lt;center&gt;
+
+---
+
+## Use lollipops when:
+
+### - The bars are overwhelming&lt;br&gt; - You're not highlighting categories
+
+&lt;!-- Idea from https://www.data-to-viz.com/graph/lollipop.html --&gt;
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="figs/life_expectancy_bars.png" width=400&gt;
+&lt;center&gt;
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/life_expectancy_lollipop.png" width=400&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center
+
+## Or use dots and don't set axis to 0
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="figs/life_expectancy_lollipop.png" width=500&gt;
+&lt;center&gt;
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/life_expectancy_dots.png" width=500&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: inverse, middle, center
+
+# Show proportions with:
+
+.cols3[
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/bar.png" width=350&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/pie.png" width=300&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/waffles.png"&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center, middle
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/bar.png"&gt;
+&lt;center&gt;
+
+## Bar charts
+
+&lt;center&gt;
+&lt;img src="figs/milk_2017_bars_stacked_rotated.png"&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/pie.png" width=160&gt;
+&lt;center&gt;
+
+## Pie charts
+
+&lt;center&gt;
+&lt;img src="figs/milk_2017_pie-1.png" width=300&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/waffles.png" width=180&gt;
+&lt;center&gt;
+
+## Waffle charts
+
+&lt;center&gt;
+&lt;img src="figs/milk_waffle_2017.png" width=300&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center
+
+## Stacked bars: better with only a few categories
+
+.leftcol[
+
+&lt;center&gt;
+&lt;img src="figs/milk_2017_bars_stacked.png" width=320&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol[
+
+&lt;center&gt;
+&lt;img src="figs/milk_2017_bars_stacked_toomany.png" width=320&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+class: center 
+
+# Stacked vs. Dodged Bars 
+
+.leftcol[
+
+### Stacked is better for comparing **total**
+
+&lt;center&gt;
+&lt;img src="figs/milk_compare_bars_stacked.png"&gt;
+&lt;/center&gt;
+
+]
+
+.rightcol[
+
+### Dodged is better for comparing **parts**
+
+&lt;center&gt;
+&lt;img src="figs/milk_compare_bars_dodged.png"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/bechdel-stacked.png" width="550"&gt;
+&lt;/center&gt;
+
+.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
+
+]
+
+.rightcol40[
+
+### - **2 to 3 groups**
+### - Proportions over time
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
+
+&lt;center&gt;
+&lt;img src="images/Coles-Graph.png" width="600"&gt;
+&lt;/center&gt;
+
+.font80[https://www.perceptualedge.com/blog/?p=2239]
+
+]
+
+.rightcol40[
+
+### - 2 to 3 groups
+### - **Proportions over time**
+
+]
+
+---
+
+class: center
+
+## Pies are still useful if the sum of components matters
+
+.cols3[
+
+&lt;center&gt;
+&lt;img src="images/bundestag-bars-stacked.png" width=250&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/bundestag-bars-dodged.png"&gt;
+&lt;center&gt;
+
+]
+
+.cols3[
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/bundestag-pie.png"&gt;
+&lt;center&gt;
+
+]
+
+---
+
+class: center
+
+## The best pies are **square pies**
+
+&lt;center&gt;
+&lt;img src="images/square-pies-rule.png" width="700"&gt;
+&lt;/center&gt;
+
+.font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
