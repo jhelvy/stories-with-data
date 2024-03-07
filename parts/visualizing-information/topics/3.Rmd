@@ -3,9 +3,9 @@ class: inverse, middle
 
 # .fancy[`r rmarkdown::metadata$title`]
 
-## 1. The Human Visual-Memory System
-## 2. The Psychology of Data Viz
+## 1. The Psychology of Data Viz
+## 2. 10 Data Viz Best Practices
 
 ## BREAK
 
-## 3. .orange[10 Data Viz Best Practices]
+## 3. .orange[Story Telling with Charts]
