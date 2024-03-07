@@ -503,40 +503,108 @@ San-serif fonts for most text
 
 ---
 
-class: center, middle
+## Use fonts to create **hierarchy**
 
-# Avoid fonts like
+.leftcol[
 
-</br>
-<div style='font-family: "Comic Sans MS"; font-size: 40pt'>Comic Sans</div>
-</br>
-<div style='font-family: "Papyrus"; font-size: 40pt'>Papyrus</div>
-</br>
-</br>
+```
+# Hierarchy
 
-# They make your work look amateurish
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+```
+
+]
+
+.rightcol[
+
+# Hierarchy
+
+## Hierarchy
+
+### Hierarchy
+
+#### Hierarchy
+
+]
 
 ---
 
-## .center[Font families you should consider using]
+.leftcol[
 
-.leftcol30[.font140[
+Title<br>This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-<p style="font-family: Roboto;">Roboto</p>
+]
 
-<p style="font-family: Fira Sans;">Fira Sans</p>
+---
 
-<p style="font-family: Source Code Pro;">Source Code pro</p>
+.leftcol[
 
-<p style="font-family: Alegreya;">Alegreya</p>
+# Size
 
-<p style="font-family: Lato;">Lato</p>
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-]]
+]
 
-.rightcol70[
+---
 
-### Download from https://fonts.google.com/
+.leftcol[
+
+**Weight**
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+.red[Color]
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Spacing
+
+<br>
+
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+]
+
+---
+
+.leftcol[
+
+Typeface
+
+<p style="font-family: Alegreya;">
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</p>
+
+]
+
+---
+
+.center[### Combine color, weight, spacing, and typeface to generate _texture_]
+
+.leftcol[
+
+<h2 style="font-family: Roboto Condensed; color: #a5442b;">Title</h2>
+<h3 style="font-family: Alegreya;">Subtitle</h3>
+
+<p style="font-family: Roboto;">
+This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</p>
 
 ]
 
@@ -577,6 +645,45 @@ class: center, middle
 .rightcol60[
 <img src="images/font_oldstyle2.jpg" width=500>
 ]
+
+---
+
+## .center[Font families you should consider using]
+
+.leftcol30[.font140[
+
+<p style="font-family: Roboto;">Roboto</p>
+
+<p style="font-family: Fira Sans;">Fira Sans</p>
+
+<p style="font-family: Source Code Pro;">Source Code pro</p>
+
+<p style="font-family: Alegreya;">Alegreya</p>
+
+<p style="font-family: Lato;">Lato</p>
+
+]]
+
+.rightcol70[
+
+### Download from https://fonts.google.com/
+
+]
+
+---
+
+class: center, middle
+
+# Avoid fonts like
+
+</br>
+<div style='font-family: "Comic Sans MS"; font-size: 40pt'>Comic Sans</div>
+</br>
+<div style='font-family: "Papyrus"; font-size: 40pt'>Papyrus</div>
+</br>
+</br>
+
+# They make your work look amateurish
 
 ---
 

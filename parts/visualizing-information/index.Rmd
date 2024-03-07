@@ -118,7 +118,7 @@ class: middle
 
 .border[
 <center>
-<img src="figs/graphQuality.png" width=900>
+<img src="images/graphQuality.png" width=900>
 </center>
 ]
 
@@ -301,7 +301,7 @@ class: center
 
 <br>
 <center>
-<img src="figs/mtCarsScatterColor.png" width=500>
+<img src="images/mtCarsScatterColor.png" width=500>
 </center>
 
 ]
@@ -325,7 +325,7 @@ class: center
 ### .red[Numerical (ratio) data]
 
 <center>
-<img src="figs/mtCarsScatterColor.png" width=500>
+<img src="images/mtCarsScatterColor.png" width=500>
 </center>
 
 ]
@@ -349,7 +349,7 @@ class: center
 ### .red[Numerical (ratio) data]<br>.blue[Categorical (ordinal) data]
 
 <center>
-<img src="figs/mtCarsScatterColor.png" width=500>
+<img src="images/mtCarsScatterColor.png" width=500>
 </center>
 
 ]
@@ -371,7 +371,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive1.png" width=500>
+<img src="images/preattentive1.png" width=500>
 </center>
 
 ]
@@ -381,7 +381,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive2.png" width=500>
+<img src="images/preattentive2.png" width=500>
 </center>
 
 ]
@@ -391,7 +391,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive3.png" width=500>
+<img src="images/preattentive3.png" width=500>
 </center>
 
 ]
@@ -406,7 +406,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive1.png" width=500>
+<img src="images/preattentive1.png" width=500>
 </center>
 
 ]
@@ -414,7 +414,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive2.png" width=500>
+<img src="images/preattentive2.png" width=500>
 </center>
 
 ]
@@ -422,7 +422,7 @@ class: center
 .cols3[
 
 <center>
-<img src="figs/preattentive3.png" width=500>
+<img src="images/preattentive3.png" width=500>
 </center>
 
 ]
@@ -435,7 +435,7 @@ class: middle
 
 <center>
 <img src="images/check-bad.png" width=100><br>
-<img src="figs/preattentive-bad.png" width=600>
+<img src="images/preattentive-bad.png" width=600>
 </center>
 
 ]
@@ -446,7 +446,7 @@ class: middle
 
 <center>
 <img src="images/check-good.png" width=100>
-<img src="figs/preattentive-good.png" width=650>
+<img src="images/preattentive-good.png" width=650>
 </center>
 
 ]
@@ -552,7 +552,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_hue.png" width=750>
+<img src="images/jr_hue.png" width=750>
 </center>
 
 ]
@@ -582,7 +582,7 @@ Sorting helps a bit...
 .right70[
 
 <center>
-<img src="figs/jr_hue_ordered.png" width=750>
+<img src="images/jr_hue_ordered.png" width=750>
 </center>
 
 ]
@@ -612,7 +612,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_length.png" width=750>
+<img src="images/jr_length.png" width=750>
 </center>
 
 ]
@@ -642,7 +642,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_position_non_aligned.png" width=750>
+<img src="images/jr_position_non_aligned.png" width=750>
 </center>
 
 ]
@@ -672,7 +672,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_position_aligned_ordered.png" width=750>
+<img src="images/jr_position_aligned_ordered.png" width=750>
 </center>
 
 ]
@@ -698,7 +698,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_position_aligned.png" width=750>
+<img src="images/jr_position_aligned.png" width=750>
 </center>
 
 ]
@@ -767,7 +767,7 @@ Our minds fill in the missing information
 
 .rightcol80[
 
-<img src="figs/jr_circle.png" width=600>
+<img src="images/jr_circle.png" width=600>
 
 ]
 
@@ -831,7 +831,7 @@ It's the graphical equivalent of this:
 .right70[
 
 <center>
-<img src="figs/jr_position_aligned.png" width=750>
+<img src="images/jr_position_aligned.png" width=750>
 </center>
 
 ]
@@ -851,7 +851,7 @@ class: middle
 .right70[
 
 <center>
-<img src="figs/jr_position_aligned_ordered.png" width=750>
+<img src="images/jr_position_aligned_ordered.png" width=750>
 </center>
 
 ]
@@ -903,7 +903,7 @@ Figure 1.6: `Monstrous Costs’ by Nigel Holmes, in Healy, 2018
 
 <center>
 <img src="images/check-good.png" width=100>
-<img src="figs/monsterBars.png" width=480>
+<img src="images/monsterBars.png" width=480>
 </center>
 
 ]
@@ -1023,7 +1023,7 @@ class: center, middle
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/facetedBars.png" width=600>]
+.border[<img src="images/facetedBars.png" width=600>]
 </center>
 
 ]
@@ -1060,7 +1060,7 @@ class: center, middle
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/simpleBars.png">]
+.border[<img src="images/simpleBars.png">]
 </center>
 
 ]
@@ -1128,7 +1128,7 @@ Image from http://livingqlikview.com/the-9-worst-data-visualizations-ever-create
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/barchart_zero.png" width=330px>]
+.border[<img src="images/barchart_zero.png" width=330px>]
 </center>
 
 ]
@@ -1195,7 +1195,7 @@ background-color: #FFFFFF
 
 <center>
 <img src="images/check-bad.png" width=80>
-<img src="figs/statesPie.png" width=750>
+<img src="images/statesPie.png" width=750>
 </center>
 
 ]
@@ -1206,7 +1206,7 @@ background-color: #FFFFFF
 
 <center>
 <img src="images/check-good.png" width=100>
-<img src="figs/statesBar.png" width=750>
+<img src="images/statesBar.png" width=750>
 </center>
 
 ]
@@ -1260,7 +1260,7 @@ class: middle, center
 
 .border[
 <center>
-<img src="figs/jr_diamonds_bars_stacked.png" width=700>
+<img src="images/jr_diamonds_bars_stacked.png" width=700>
 </center>
 ]
 
@@ -1273,7 +1273,7 @@ class: middle, center
 .leftcol[.border[
 
 <center>
-<img src="figs/jr_diamonds_line_cut.png">
+<img src="images/jr_diamonds_line_cut.png">
 </center>
 
 ]]
@@ -1281,7 +1281,7 @@ class: middle, center
 .rightcol[.border[
 
 <center>
-<img src="figs/jr_diamonds_line_total.png">
+<img src="images/jr_diamonds_line_total.png">
 </center>
 
 ]]
@@ -1295,7 +1295,7 @@ class: middle, center
 .leftcol60[.border[
 
 <center>
-<img src="figs/jr_phones_area.png">
+<img src="images/jr_phones_area.png">
 </center>
 
 ]]
@@ -1305,7 +1305,7 @@ class: middle, center
 .rightcol40[.border[
 
 <center>
-<img src="figs/backgroundChecks.png" width=400>
+<img src="images/backgroundChecks.png" width=400>
 </center>
 
 ]]
@@ -1325,7 +1325,7 @@ class: middle, center
 
 <center>
 <img src="images/check-bad.png" width=80>
-.border[<img src="figs/mpg_bars_bad.png" width=400>]
+.border[<img src="images/mpg_bars_bad.png" width=400>]
 </center>
 
 ]
@@ -1336,7 +1336,7 @@ class: middle, center
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/mpg_bars_flipped.png" width=750>]
+.border[<img src="images/mpg_bars_flipped.png" width=750>]
 </center>
 
 ]
@@ -1352,7 +1352,7 @@ class: middle, center
 <center>
 <img src="images/check-bad.png" width=80>
 Ordered by alphabet (default)
-.border[<img src="figs/mpg_bars_flipped.png">]
+.border[<img src="images/mpg_bars_flipped.png">]
 </center>
 
 ]
@@ -1364,7 +1364,7 @@ Ordered by alphabet (default)
 <center>
 <img src="images/check-good.png" width=100>
 Ordered by count
-.border[<img src="figs/mpg_bars_flipped_sorted.png">]
+.border[<img src="images/mpg_bars_flipped_sorted.png">]
 </center>
 
 ]
@@ -1457,7 +1457,7 @@ class: middle, center
 
 <center>
 <img src="images/check-bad.png" width=75>
-.border[<img src="figs/milk_region.png">]
+.border[<img src="images/milk_region.png">]
 </center>
 
 ]
@@ -1468,7 +1468,7 @@ class: middle, center
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/milk_region_label.png">]
+.border[<img src="images/milk_region_label.png">]
 </center>
 
 ]
@@ -1537,7 +1537,7 @@ class: center
 .leftcol[
 
 <center>
-.border[<img src="figs/colorBlindBad1.png">]
+.border[<img src="images/colorBlindBad1.png">]
 </center>
 
 ]
@@ -1547,7 +1547,7 @@ class: center
 .rightcol[
 
 <center>
-.border[<img src="figs/colorBlindBad2.png">]
+.border[<img src="images/colorBlindBad2.png">]
 </center>
 
 ]
@@ -1562,7 +1562,7 @@ class: middle, center
 
 <center>
 <img src="images/check-bad.png" width=75>
-.border[<img src="figs/colorBlindBad1.png">]
+.border[<img src="images/colorBlindBad1.png">]
 </center>
 
 ]
@@ -1573,7 +1573,7 @@ class: middle, center
 
 <center>
 <img src="images/check-good.png" width=100>
-.border[<img src="figs/colorBlindBad3.png">]
+.border[<img src="images/colorBlindBad3.png">]
 </center>
 
 ]
@@ -1666,7 +1666,7 @@ class: middle
 .rightcol60[
 
 <center>
-<img src="figs/prisoner_bars.png" width=900>
+<img src="images/prisoner_bars.png" width=900>
 </center>
 
 ]
@@ -1743,7 +1743,7 @@ class: middle
 .cols3[
 
 <center>
-<img src="figs/backgroundChecks.png">
+<img src="images/backgroundChecks.png">
 </center>
 
 ]
@@ -2097,216 +2097,6 @@ Source: https://ourworldindata.org/less-meat-or-sustainable-meat
 
 
 
----
-
-class: inverse, center, middle
-
-# Fonts matter
-
-.leftcol[
-
-<center>
-<img src="images/fonts_matter_fast_taco.jpg" width=500>
-</center>
-
-"Fast Taco"
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/fonts_matter_megaflicks.jpg" width=500>
-</center>
-
-"Mega Flicks"
-
-]
-
----
-
-class: inverse, center, middle
-
-<center>
-<img src="images/fonts_matter.jpg" width=500>
-</center>
-
----
-
-# .center[Use fonts with **same-height** numbers]
-
-<br>
-
-.leftcol35[.right[
-
-## "Oldstyle" (bad)
-
-<br>
-
-## Lining (good)
-
-]]
-
-.rightcol65[
-
-<img src="images/font_oldstyle1.jpg" width=500>
-
-]
-
----
-
-# .center[Use fonts with **same-width** numbers]
-
-<br>
-
-.leftcol40[.right[
-
-## "Proportional" (bad)
-
-<br>
-
-## "Tabular" (good)
-
-]]
-
-.rightcol60[
-
-<img src="images/font_oldstyle2.jpg" width=500>
-
-]
-
----
-
-## .center[Font families you should consider using]
-
-.leftcol30[.font120[
-
-<p style="font-family: Roboto;">Roboto</p>
-
-<p style="font-family: Source Code Pro;">Source</p>
-
-<p style="font-family: Fira Sans;">Fira</p>
-
-<p style="font-family: Alegreya;">Alegreya</p>
-
-<p style="font-family: Lato;">Lato</p>
-
-]]
-
-.rightcol70[
-
-Download:
-
-- Individually from https://fonts.google.com/
-- All of these with [this zip file](https://github.com/emse-eda-gwu/2022-Fall/raw/main/content/fonts.zip)
-
-]
-
----
-
-## Use fonts to create **hierarchy**
-
-.leftcol[
-
-```
-# Hierarchy
-
-## Hierarchy
-
-### Hierarchy
-
-#### Hierarchy
-```
-
-]
-
-.rightcol[
-
-# Hierarchy
-
-## Hierarchy
-
-### Hierarchy
-
-#### Hierarchy
-
-]
-
----
-
-.leftcol[
-
-Title<br>This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-]
-
----
-
-.leftcol[
-
-# Size
-
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-]
-
----
-
-.leftcol[
-
-**Weight**
-
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-]
-
----
-
-.leftcol[
-
-.red[Color]
-
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-]
-
----
-
-.leftcol[
-
-Spacing
-
-<br>
-
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-]
-
----
-
-.leftcol[
-
-Typeface
-
-<p style="font-family: Alegreya;">
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</p>
-
-]
-
----
-
-.leftcol[
-
-<h2 style="font-family: Roboto Condensed; color: #a5442b;">Title</h2>
-<h3 style="font-family: Alegreya;">Subtitle</h3>
-
-<p style="font-family: Roboto;">
-This is some text that goes into detail and explains a lot more about the topic described in the title. Here's some random Latin words: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</p>
-
-]
-
 
 
 
@@ -2356,7 +2146,7 @@ class: center, middle
 ## Bar chart
 
 <center>
-<img src="figs/federal_spending_bars.png">
+<img src="images/federal_spending_bars.png">
 <center>
 
 ]
@@ -2370,7 +2160,7 @@ class: center, middle
 ## Dot chart
 
 <center>
-<img src="figs/federal_spending_dots.png">
+<img src="images/federal_spending_dots.png">
 <center>
 
 ]
@@ -2384,7 +2174,7 @@ class: center, middle
 ## Lollipop chart
 
 <center>
-<img src="figs/federal_spending_lollipop.png">
+<img src="images/federal_spending_lollipop.png">
 <center>
 
 ]
@@ -2396,7 +2186,7 @@ class: center
 ## Bars are good for highlighting specific categories
 
 <center>
-<img src="figs/federal_spending_bars_highlight_title.png" width=700>
+<img src="images/federal_spending_bars_highlight_title.png" width=700>
 <center>
 
 ---
@@ -2410,7 +2200,7 @@ class: center
 .leftcol[
 
 <center>
-<img src="figs/life_expectancy_bars.png" width=400>
+<img src="images/life_expectancy_bars.png" width=400>
 <center>
 
 ]
@@ -2418,7 +2208,7 @@ class: center
 .rightcol[
 
 <center>
-<img src="figs/life_expectancy_lollipop.png" width=400>
+<img src="images/life_expectancy_lollipop.png" width=400>
 <center>
 
 ]
@@ -2432,7 +2222,7 @@ class: center
 .leftcol[
 
 <center>
-<img src="figs/life_expectancy_lollipop.png" width=500>
+<img src="images/life_expectancy_lollipop.png" width=500>
 <center>
 
 ]
@@ -2440,7 +2230,7 @@ class: center
 .rightcol[
 
 <center>
-<img src="figs/life_expectancy_dots.png" width=500>
+<img src="images/life_expectancy_dots.png" width=500>
 <center>
 
 ]
@@ -2489,7 +2279,7 @@ class: center, middle
 ## Bar charts
 
 <center>
-<img src="figs/milk_2017_bars_stacked_rotated.png">
+<img src="images/milk_2017_bars_stacked_rotated.png">
 <center>
 
 ]
@@ -2503,7 +2293,7 @@ class: center, middle
 ## Pie charts
 
 <center>
-<img src="figs/milk_2017_pie-1.png" width=300>
+<img src="images/milk_2017_pie-1.png" width=300>
 <center>
 
 ]
@@ -2517,7 +2307,7 @@ class: center, middle
 ## Waffle charts
 
 <center>
-<img src="figs/milk_waffle_2017.png" width=300>
+<img src="images/milk_waffle_2017.png" width=300>
 <center>
 
 ]
@@ -2531,7 +2321,7 @@ class: center
 .leftcol[
 
 <center>
-<img src="figs/milk_2017_bars_stacked.png" width=320>
+<img src="images/milk_2017_bars_stacked.png" width=320>
 </center>
 
 ]
@@ -2539,7 +2329,7 @@ class: center
 .rightcol[
 
 <center>
-<img src="figs/milk_2017_bars_stacked_toomany.png" width=320>
+<img src="images/milk_2017_bars_stacked_toomany.png" width=320>
 </center>
 
 ]
@@ -2555,7 +2345,7 @@ class: center
 ### Stacked is better for comparing **total**
 
 <center>
-<img src="figs/milk_compare_bars_stacked.png">
+<img src="images/milk_compare_bars_stacked.png">
 </center>
 
 ]
@@ -2565,7 +2355,7 @@ class: center
 ### Dodged is better for comparing **parts**
 
 <center>
-<img src="figs/milk_compare_bars_dodged.png">
+<img src="images/milk_compare_bars_dodged.png">
 </center>
 
 ]
