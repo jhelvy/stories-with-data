@@ -903,7 +903,7 @@ Figure 1.6: `Monstrous Costs’ by Nigel Holmes, in Healy, 2018
 
 <center>
 <img src="images/check-good.png" width=100>
-<img src="images/monsterBars.png" width=480>
+<img src="images/monsterBars-revised.png" width=480>
 </center>
 
 ]
@@ -1268,7 +1268,7 @@ class: middle, center
 
 class: middle, center
 
-## "Parallel coordinates" plot usually works better
+## "Parallel coordinates" plot is a good alternative
 
 .leftcol[.border[
 
@@ -1288,27 +1288,95 @@ class: middle, center
 
 ---
 
-class: middle, center
+class: center
 
-## Exception:<br>When you care about the _total_ more than the categories
+## .center[Where stacking is useful]
 
-.leftcol60[.border[
+.cols3[
+
+<center>
+<img src="images/check-bad.png" width=55>
+<img src="images/milk_2017_bars_stacked_toomany.png" width=300>
+</center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/check-good.png" width=80>
+<img src="images/milk_2017_bars_stacked.png" width=300>
+</center>
+
+]
+
+.cols3[
+
+### **With 2 to 3 groups**
+### Proportions over time
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol65[
+
+<center>
+<img src="images/bechdel-stacked.png">
+</center>
+
+.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
+
+]
+
+.rightcol35[
+
+### **With 2 to 3 groups**
+### Proportions over time
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
+
+<center>
+<img src="images/Coles-Graph.png" width="600">
+</center>
+
+.font80[https://www.perceptualedge.com/blog/?p=2239]
+
+]
+
+.rightcol40[
+
+### With 2 to 3 groups
+### **Proportions over time**
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol60[
 
 <center>
 <img src="images/jr_phones_area.png">
 </center>
 
-]]
+]
 
---
+.rightcol40[
 
-.rightcol40[.border[
+### With 2 to 3 groups
+### **Proportions over time**
 
-<center>
-<img src="images/backgroundChecks.png" width=400>
-</center>
-
-]]
+]
 
 ---
 
@@ -1451,7 +1519,7 @@ dod_spending
 
 class: middle, center
 
-## Directly label geoms
+## Directly label things to remove legends!
 
 .leftcol[
 
@@ -1482,6 +1550,52 @@ class: center
 <center>
 .border[<img src="images/pattern_fills2.png" width=600>]
 </center>
+
+---
+
+class: center
+
+## Avoid putting >2 categories in legend (if possible)
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=75>
+<img src="images/milk-compare-dodged-bad.png" width=100%>
+</center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/check-good.png" width=100>
+<img src="images/milk-compare-dodged-good.png" width=100%>
+</center>
+
+]
+
+---
+
+## .center[Or use faceting to eliminate the legend!]
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=75>
+<img src="images/milk-compare-dodged-bad.png" width=100%>
+</center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/check-good.png" width=100>
+<img src="images/milk-compare-facet.png" width=600>
+</center>
+
+]
 
 ---
 
@@ -1860,124 +1974,6 @@ engagement_plot
 
 ---
 
-# Data exploration: an iterative process
-
---
-
-.leftcol[
-
-Encode data:
-
-.code60[
-
-```{r}
-engagement_data <- data.frame(
-    City   = c(643, 735, 590, 863),
-    County = c(793, 928, 724, 662),
-    School = c('Special Ed., Charter', 'Special Ed., Public',
-               'General Ed., Charter', 'General Ed., Public'))
-engagement_data
-```
-
-]]
-
---
-
-.rightcol[
-
-Re-format data for plotting:
-
-.code60[
-
-```{r}
-engagement_data <- engagement_data %>%
-    gather(Location, Engagement, City:County) %>%
-    mutate(Location = fct_relevel(
-      Location, c('City', 'County')))
-engagement_data
-```
-
-]]
-
----
-
-# Data exploration: an iterative process
-
-.leftcol[
-
-Initial exploratory plotting:
-
-.code60[
-
-```{r student-engagement-bars1, fig.width=6, fig.height=3}
-engagement_data %>%
-    ggplot() +
-    geom_col(aes(x = Engagement, y = School,
-                 fill = Location),
-             position = 'dodge')
-```
-
-]]
-
---
-
-.rightcol[
-
-More exploratory plotting:<br>highlight difference
-
-```{r student-engagement-bars2, echo=FALSE, fig.width=6, fig.height=5}
-engagement %>%
-    mutate(Highlight = as.factor(Highlight)) %>%
-    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
-    geom_point() +
-    geom_line() +
-    labs(x='Sex', y='Engagement')
-```
-
-]
-
----
-
-# Data exploration: an iterative process
-
-.leftcol[
-
-Directly label figure:
-
-```{r student-engagement-bars3, echo=FALSE, fig.width=6, fig.height=5}
-engagement %>%
-    mutate(Highlight = as.factor(Highlight)) %>%
-    ggplot(aes(x=x, y=Engagement, group=School, color=School)) +
-    geom_point() +
-    geom_line() +
-    labs(x='Location', y='Engagement') +
-    theme_cowplot() +
-    scale_x_continuous(limits = c(-0.2, 2), labels = c('City', 'County'),
-                       breaks = c(0, 1)) +
-    theme(legend.position = 'none') +
-    geom_text_repel(aes(label = School, color = as.factor(School)),
-                    data          = subset(engagement, Location == 'County'),
-                    size          = 5,
-                    nudge_x       = 0.2,
-                    hjust         = 0,
-                    segment.color = NA)
-```
-
-]
-
---
-
-.rightcol[
-
-Remove unnecessary axes, change colors, fix labels:
-
-```{r, ref.label='student-engagement-final', echo=FALSE, fig.width=6, fig.height=5}
-```
-
-]
-
----
-
 class: center, middle, inverse
 
 # Your message should be _obvious_
@@ -2017,6 +2013,7 @@ class: center
 .leftcol[
 
 # Norman door
+
 <center>
 <img src="images/check-bad.png" width=80>
 <img src="images/norman_door.jpg" width=250>
@@ -2029,6 +2026,7 @@ class: center
 .rightcol[
 
 # Non-Norman door
+
 <center>
 <img src="images/check-good.png" width=100>
 <img src="images/non-norman-door.jpg" width=480>
@@ -2316,96 +2314,6 @@ class: center, middle
 
 class: center
 
-## Stacked bars: better with only a few categories
-
-.leftcol[
-
-<center>
-<img src="images/milk_2017_bars_stacked.png" width=320>
-</center>
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/milk_2017_bars_stacked_toomany.png" width=320>
-</center>
-
-]
-
----
-
-class: center 
-
-# Stacked vs. Dodged Bars 
-
-.leftcol[
-
-### Stacked is better for comparing **total**
-
-<center>
-<img src="images/milk_compare_bars_stacked.png">
-</center>
-
-]
-
-.rightcol[
-
-### Dodged is better for comparing **parts**
-
-<center>
-<img src="images/milk_compare_bars_dodged.png">
-</center>
-
-]
-
----
-
-## .center[Where stacking is useful]
-
-.leftcol60[
-
-<center>
-<img src="images/bechdel-stacked.png" width="550">
-</center>
-
-.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
-
-]
-
-.rightcol40[
-
-### - **2 to 3 groups**
-### - Proportions over time
-
-]
-
----
-
-## .center[Where stacking is useful]
-
-.leftcol60[
-
-<center>
-<img src="images/Coles-Graph.png" width="600">
-</center>
-
-.font80[https://www.perceptualedge.com/blog/?p=2239]
-
-]
-
-.rightcol40[
-
-### - 2 to 3 groups
-### - **Proportions over time**
-
-]
-
----
-
-class: center
-
 ## Pies are still useful if the sum of components matters
 
 .cols3[
@@ -2446,3 +2354,53 @@ class: center
 </center>
 
 .font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]
+
+
+
+
+
+
+
+
+
+
+---
+
+class: center
+
+## With **more than 2** things, dodged bars can get confusing
+
+Still comparing 2 time periods, but across **10** categories
+
+<center>
+<img src="images/milk-compare-dodged-toomany.png" width=600>
+</center>
+
+---
+
+.leftcol[
+
+Dumbbell charts highlight:
+
+- Compare **magnitudes** across two periods / groups
+
+<center>
+<img src="images/milk-dumbbell.png" width=450>
+</center>
+
+]
+
+--
+
+.rightcol[
+
+Slope charts highlight:
+
+- _Change_ in **rankings**
+- Highlight individual categories
+
+<center>
+<img src="images/milk-slope.png" width=450>
+</center>
+
+]
