@@ -1,7 +1,7 @@
 
 class: inverse
 
-# .center[5 Data Viz Don'ts]
+# .center[Data Viz Don'ts]
 
 ## 1. Don't use chart chunk
 ## 2. .orange[Don't make 3D plots]

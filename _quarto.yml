@@ -31,7 +31,7 @@ website:
         href: visualizing-information.qmd
   page-footer:
     center:
-      - text: 'Workshop: Storytelling & Data Visualization (Spring 2024)<br><a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> | <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> | <a href="https://github.com/jhelvy/dtais-dataviz"><i class="fa fa-github"></i></a> | <a href="https://twitter.com/JohnHelveston"><i class="fa fa-twitter"></i></a><br><a href="LICENSE.html">LICENSE: CC-BY-SA <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>'
+      - text: "Workshop: Storytelling With Data (Spring 2024)<br><a href='https://www.jhelvy.com'><i class='fas fa-user'></i> Dr. John Paul Helveston</a> | <a href='mailto:jph@gwu.edu'><i class='fas fa-envelope'></i> jph@gwu.edu</a> | <a href='https://github.com/jhelvy/stories-with-data'><i class='fa fa-github'></i></a> | <a href='https://twitter.com/JohnHelveston'><i class='fa fa-twitter'></i></a><br><a href='LICENSE.html'>LICENSE: CC-BY-SA <i class='fab fa-creative-commons'></i><i class='fab fa-creative-commons-by'></i><i class='fab fa-creative-commons-sa'></i></a>"
 
 format:
   html:

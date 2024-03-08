@@ -1,12 +1,8 @@
 ---
-title: "DTAIS Workshop:"
+title: "Storytelling With Data"
 ---
 
-# Storytelling &<br>Data Visualization
-
 <hr>
-
-July 12, 2022
 
 George Washington University
 
@@ -24,6 +20,6 @@ In this section, we will discuss strategies for communicating research to others
 
 In this section, we will discuss design principles for visualizing information through charts. This will include:
 
-1. The Human Visual-Memory System
-2. The Psychology of Data Visualization
-3. 10 Data Viz Best Practices
+1. The visual-memory system and the psychology of data visualization
+2. Data visualization "Don'ts"
+3. Data visualization "Do's"

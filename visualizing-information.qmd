@@ -50,8 +50,9 @@ path_pdf <- file.path("parts", part, paste0(part, ".pdf"))
 
 :::
 
-```{r lexi-demo, echo=FALSE}
-xaringanExtra::embed_xaringan(url = path_slides, ratio = "16:9")
-```
+::: slides-wrapper
+<iframe class="slides-iframe" src="`r path_slides`"></iframe>
+:::
+
 
 :::

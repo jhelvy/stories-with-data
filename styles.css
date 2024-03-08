@@ -106,3 +106,21 @@ tr:last-child {
   line-height: .5;
   border-radius: .3rem;
 }
+
+/* Slide Embedding */
+
+.slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.slides-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+}

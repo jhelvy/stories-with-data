@@ -1,7 +1,7 @@
 
 class: inverse
 
-# .center[5 Data Viz Do's]
+# .center[Data Viz Do's]
 
 ## 1. Annotate your charts
 ## 2. .orange[Eliminate legends]
