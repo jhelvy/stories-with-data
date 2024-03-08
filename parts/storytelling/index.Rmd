@@ -1,9 +1,6 @@
 ---
 title: "Storytelling"
-subtitle: "DTAIS NRT Workshop"
-date: July 12, 2022
 author: "John Paul Helveston"
-institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
 output:
   xaringan::moon_reader:
     css:
@@ -84,16 +81,17 @@ background-color: #000
 
 .rightcol40[
 
-### `r fontawesome::fa(name = "university", fill = "white")` `r rmarkdown::metadata$subtitle`
-### `r fontawesome::fa(name = "user", fill = "white")` `r rmarkdown::metadata$author`
-### `r fontawesome::fa(name = "calendar-alt", fill = "white")` `r rmarkdown::metadata$date`
+### `r rmarkdown::metadata$author`
+### The George Washington University 
+### Dept. of Engineering Management & Systems Engineering
+
 ]
 
 ---
 
 class: middle, center
 
-# Download [this cheatsheet](https://jhelvy.github.io/dtais-dataviz/content/cheatsheet-storytelling.pdf) for today's content
+# Download [this cheatsheet](https://jhelvy.github.io/stories-with-data/content/cheatsheet-storytelling.pdf) for today's content
 
 ---
 
