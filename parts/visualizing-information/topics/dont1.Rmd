@@ -1,0 +1,10 @@
+
+class: inverse
+
+# .center[Data Viz Don'ts]
+
+## 1. .orange[Don't use chart chunk]
+## 2. Don't make 3D plots
+## 3. Don't use pattern fills
+## 4. Don't use red & green together
+## 5. Don't lie

@@ -1,0 +1,10 @@
+
+class: inverse
+
+# .center[Data Viz Do's]
+
+## 1. Annotate your charts
+## 2. Eliminate legends
+## 3. Show amounts with bars, dots, and lollipops
+## 4. Show proportions with bars and waffles (not pies)
+## 5. Show trends with lines, bars, and heatmaps

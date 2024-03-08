@@ -1,0 +1,8 @@
+
+class: inverse, middle
+
+# .fancy[`r rmarkdown::metadata$title`]
+
+## 1. Telling a story
+## 2. .orange[Designing slides]
+## 3. Giving a talk
