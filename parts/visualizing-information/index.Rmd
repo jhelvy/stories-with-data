@@ -835,12 +835,12 @@ class: middle
 
 ---
 
-```{r child="topics/bp0.Rmd"}
+```{r child="topics/dont0.Rmd"}
 ```
 
 ---
 
-```{r child="topics/bp1.Rmd"}
+```{r child="topics/dont1.Rmd"}
 ```
 
 ---
@@ -916,7 +916,7 @@ class: center, middle
 
 ---
 
-```{r child="topics/bp2.Rmd"}
+```{r child="topics/dont2.Rmd"}
 ```
 
 ---
@@ -1038,7 +1038,102 @@ class: center, middle
 
 ---
 
-```{r child="topics/bp3.Rmd"}
+```{r child="topics/dont3.Rmd"}
+```
+
+---
+
+class: middle
+background-color: #f8f8f8
+
+<center>
+<img src="images/pattern_fills3.png" width=600>
+</center>
+
+---
+
+class: middle, center
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=75>
+.border[<img src="images/pattern_fills1.png">]
+</center>
+
+]
+
+--
+
+.rightcol[
+
+<center>
+<img src="images/check-good.png" width=100>
+.border[<img src="images/pattern_fills2.png">]
+</center>
+
+]
+
+---
+
+```{r child="topics/dont4.Rmd"}
+```
+
+---
+
+class: center
+
+# 10% of males and 1% of females are color blind
+
+--
+
+.leftcol[
+
+<center>
+.border[<img src="images/colorBlindBad1.png">]
+</center>
+
+]
+
+--
+
+.rightcol[
+
+<center>
+.border[<img src="images/colorBlindBad2.png">]
+</center>
+
+]
+
+---
+
+class: middle, center
+
+## Facets can be used to avoid color altogether
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=75>
+.border[<img src="images/colorBlindBad1.png">]
+</center>
+
+]
+
+--
+
+.rightcol[
+
+<center>
+<img src="images/check-good.png" width=100>
+.border[<img src="images/colorBlindBad3.png">]
+</center>
+
+]
+
+---
+
+```{r child="topics/dont5.Rmd"}
 ```
 
 ---
@@ -1077,6 +1172,61 @@ Image from http://livingqlikview.com/the-9-worst-data-visualizations-ever-create
 
 class: center, middle
 
+# Don't cherry pick your data
+
+---
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=50>
+<img src="images/wsj_food.png" width=400>
+</center>
+
+https://x.com/PEWilliams_/status/1760688839193231550?s=20
+
+]
+
+--
+
+.rightcol[
+
+### .center[Don't cherry pick your data]
+
+<center>
+<img src="images/check-good.png" width=70>
+<img src="images/household-expenditures.png" width=100%>
+</center>
+
+]
+
+---
+
+.leftcol[
+
+<center>
+<img src="images/gun-deaths.png" width=500>
+</center>
+
+]
+
+.rightcol[
+
+## Use common conventions
+
+- "Up" on Y axis should mean larger
+- Time moves left to right
+
+<br><br><br><br><br><br><br><br><br><br>
+
+.font80[https://www.livescience.com/45083-misleading-gun-death-chart.html]
+
+]
+
+---
+
+class: center, middle
+
 # Make sure your chart makes sense
 
 <center>
@@ -1091,8 +1241,205 @@ Image from Image from http://livingqlikview.com/the-9-worst-data-visualizations-
 
 ---
 
-```{r child="topics/bp4.Rmd"}
+class: inverse, center
+
+```{r, echo=FALSE}
+countdown(
+    minutes = 5,
+    warn_when = 30,
+    update_every = 1,
+    left = 0, right = 0, top = 1, bottom = 0,
+    margin = "5%",
+    font_size = "8em"
+)
 ```
+
+# Intermission!
+
+## Stand up, Move around, Stretch!
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+class: center, inverse, middle
+
+# **Data Viz Goal**:<br>Translate _data_ into _information_
+
+---
+
+class: center
+
+# Translate _data_ into _information_
+
+--
+
+.leftcol[
+
+**Data**
+
+Average student engagement scores
+
+ Class       | Type | City | County
+ ------------|-------------|------|-------
+ Special Ed. | Charter     | 643  | 793
+ Special Ed. | Public      | 735  | 928
+ General Ed. | Charter     | 590  | 724
+ General Ed. | Public      | 863  | 662
+
+]
+
+--
+
+.rightcol[
+
+**Information**
+
+<center>
+<img src="images/student-engagement-plot.png" width=450>
+</center>
+
+]
+
+---
+
+```{r child="topics/do0.Rmd"}
+```
+
+---
+
+```{r child="topics/do1.Rmd"}
+```
+
+---
+
+class: center, middle, inverse
+
+# Text is usually the single most important component on your chart
+
+---
+
+class: middle
+
+<center>
+<img src="images/eye_tracking.gif" width=900>
+</center>
+
+.font80[Michelle Borkin, et al. (2015) [Beyond Memorability: Visualization Recognition and Recall](https://ieeexplore.ieee.org/document/7192646)]
+
+---
+
+class: center
+
+<center>
+<img src="images/titles_matter.jpg" width=600>
+</center>
+
+.font80[https://www.reddit.com/r/dataisugly/comments/odk65x/this_was_not_the_right_headline_to_go_along_with]
+
+---
+
+.leftcol60[
+
+<center>
+<img src="images/protein.png" width=100%>
+</center>
+
+]
+
+.rightcol40[
+
+## Good annotations should tell a story
+
+<br><br><br><br><br><br><br><br><br><br>
+
+Source: https://ourworldindata.org/less-meat-or-sustainable-meat
+
+]
+
+---
+
+
+
+
+
+
+
+---
+
+class: middle
+
+<center>
+<img src="images/norman_door.gif" width=900>
+</center>
+
+---
+
+.leftcol[
+
+# Norman door (n.):
+
+1. A door where the design tells you to do the opposite of what you're actually supposed to do.
+
+2. A door that gives the wrong signal and needs a sign to correct it.
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/design_of_everyday_things.jpg" width=400>
+</center>
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+# Norman door
+
+<center>
+<img src="images/check-bad.png" width=80>
+<img src="images/norman_door.jpg" width=250>
+</center>
+
+]
+
+--
+
+.rightcol[
+
+# Non-Norman door
+
+<center>
+<img src="images/check-good.png" width=100>
+<img src="images/non-norman-door.jpg" width=480>
+</center>
+
+]
+
+---
+
+Match your chart type to your message
+
+---
+
+
+
+
+
+
+
+
+---
+
+Pies
 
 ---
 
@@ -1157,8 +1504,21 @@ background-color: #FFFFFF
 
 ---
 
-```{r child="topics/bp5.Rmd"}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+Stacked Bars
 
 ---
 
@@ -1288,8 +1648,24 @@ class: center
 
 ---
 
-```{r child="topics/bp6.Rmd"}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+Rotate bars
 
 ---
 
@@ -1357,8 +1733,13 @@ class: center
 
 ---
 
-```{r child="topics/bp7.Rmd"}
-```
+
+
+
+
+---
+
+Eliminate legends
 
 ---
 
@@ -1476,100 +1857,16 @@ class: center
 
 ]
 
----
 
-```{r child="topics/bp8.Rmd"}
-```
 
----
 
-class: middle
-background-color: #f8f8f8
 
-<center>
-<img src="images/pattern_fills3.png" width=600>
-</center>
 
----
 
-class: middle, center
 
-.leftcol[
 
-<center>
-<img src="images/check-bad.png" width=75>
-.border[<img src="images/pattern_fills1.png">]
-</center>
 
-]
 
---
-
-.rightcol[
-
-<center>
-<img src="images/check-good.png" width=100>
-.border[<img src="images/pattern_fills2.png">]
-</center>
-
-]
-
----
-
-```{r child="topics/bp9.Rmd"}
-```
-
----
-
-class: center
-
-# 10% of males and 1% of females are color blind
-
---
-
-.leftcol[
-
-<center>
-.border[<img src="images/colorBlindBad1.png">]
-</center>
-
-]
-
---
-
-.rightcol[
-
-<center>
-.border[<img src="images/colorBlindBad2.png">]
-</center>
-
-]
-
----
-
-class: middle, center
-
-## Facets can be used to avoid color altogether
-
-.leftcol[
-
-<center>
-<img src="images/check-bad.png" width=75>
-.border[<img src="images/colorBlindBad1.png">]
-</center>
-
-]
-
---
-
-.rightcol[
-
-<center>
-<img src="images/check-good.png" width=100>
-.border[<img src="images/colorBlindBad3.png">]
-</center>
-
-]
 
 ---
 
@@ -1743,188 +2040,19 @@ class: middle
 
 ---
 
-class: inverse, center
-
-```{r, echo=FALSE}
-countdown(
-    minutes = 5,
-    warn_when = 30,
-    update_every = 1,
-    left = 0, right = 0, top = 1, bottom = 0,
-    margin = "5%",
-    font_size = "8em"
-)
-```
-
-# Intermission!
-
-## Stand up, Move around, Stretch!
 
 ---
 
-```{r child="topics/3.Rmd"}
-```
 
----
 
-class: center, inverse, middle
 
-# **Data Viz Goal**:<br>Translate _data_ into _information_
 
----
 
-class: center
 
-# Translate _data_ into _information_
 
---
 
-.leftcol[
 
-**Data**
 
-Average student engagement scores
-
- Class       | Type | City | County
- ------------|-------------|------|-------
- Special Ed. | Charter     | 643  | 793
- Special Ed. | Public      | 735  | 928
- General Ed. | Charter     | 590  | 724
- General Ed. | Public      | 863  | 662
-
-]
-
---
-
-.rightcol[
-
-**Information**
-
-<center>
-<img src="images/student-engagement-plot.png" width=450>
-</center>
-
-]
-
----
-
-class: center, middle, inverse
-
-# Your message should be _obvious_
-
----
-
-class: middle
-
-<center>
-<img src="images/norman_door.gif" width=900>
-</center>
-
----
-
-.leftcol[
-
-# Norman door (n.):
-
-1. A door where the design tells you to do the opposite of what you're actually supposed to do.
-
-2. A door that gives the wrong signal and needs a sign to correct it.
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/design_of_everyday_things.jpg" width=400>
-</center>
-
-]
-
----
-
-class: center
-
-.leftcol[
-
-# Norman door
-
-<center>
-<img src="images/check-bad.png" width=80>
-<img src="images/norman_door.jpg" width=250>
-</center>
-
-]
-
---
-
-.rightcol[
-
-# Non-Norman door
-
-<center>
-<img src="images/check-good.png" width=100>
-<img src="images/non-norman-door.jpg" width=480>
-</center>
-
-]
-
----
-
-class: center, middle, inverse
-
-# Text is usually the single most important component on your chart
-
----
-
-class: middle
-
-<center>
-<img src="images/eye_tracking.gif" width=900>
-</center>
-
-.font80[Michelle Borkin, et al. (2015) [Beyond Memorability: Visualization Recognition and Recall](https://ieeexplore.ieee.org/document/7192646)]
-
----
-
-class: center
-
-.leftcol60[
-
-<center>
-<img src="images/titles_matter.jpg" width=100%>
-</center>
-
-]
-
-.rightcol40[
-
-## Titles matter
-
-<br><br><br><br><br><br><br><br><br><br><br>
-
-Source: https://www.reddit.com/r/dataisugly/comments/odk65x/this_was_not_the_right_headline_to_go_along_with
-
-]
-
----
-
-.leftcol60[
-
-<center>
-<img src="images/protein.png" width=100%>
-</center>
-
-]
-
-.rightcol40[
-
-## Good annotations should tell a story
-
-<br><br><br><br><br><br><br><br><br><br>
-
-Source: https://ourworldindata.org/less-meat-or-sustainable-meat
-
-]
 
 
 

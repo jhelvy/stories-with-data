@@ -4,8 +4,8 @@ class: inverse, middle
 # .fancy[`r rmarkdown::metadata$title`]
 
 ## 1. The Psychology of Data Viz
-## 2. .orange[10 Data Viz Best Practices]
+## 2. .orange[5 Data Viz Don'ts]
 
 ## BREAK
 
-## 3. Story Telling with Charts
+## 3. 5 Data Viz Do's
