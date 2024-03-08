@@ -72,23 +72,6 @@ meta() %>%
 
 # Read in data
 gapminder <- read_csv(here('data', 'gapminder.csv'))
-milk_production  <- read_csv(here::here('data', 'milk_production.csv'))
-milk_region <- milk_production %>%
-    filter(region %in% c(
-        'Pacific', 'Northeast', 'Lake States', 'Mountain')) %>%
-    group_by(year, region) %>%
-    summarise(milk_produced = sum(milk_produced)) %>%
-    ungroup() %>%
-    mutate(label = ifelse(year == max(year), region, NA))
-federal_spending <- read_csv(here::here('data', 'federal_spending_long.csv'))
-federal_spending_summary <- federal_spending %>%
-    mutate(department = fct_other(
-        department, keep = 'DOD')) %>%
-    group_by(department, year) %>%
-    summarise(rd_budget = sum(rd_budget) / 10^3) %>%
-    ungroup() %>%
-    mutate(department = fct_relevel(
-        department, c('Other', 'DOD')))
 ```
 
 background-image: url("images/nasa_global_preview.png")
@@ -487,7 +470,7 @@ Cleveland, W. S., & McGill, R. (1985). Graphical perception and graphical method
 name: cleveland-estimation
 class: center, middle
 
-# .red[Estimation]: Hierarchy for _numerical_ data
+# Hierarchy for _numerical_ data
 
 <center>
 <img src="images/cleveland-hierarchy.png" width=1000>
@@ -1057,7 +1040,6 @@ class: center, middle
 
 .rightcol40[
 
-
 <center>
 <img src="images/check-good.png" width=100>
 .border[<img src="images/simpleBars.png">]
@@ -1069,37 +1051,6 @@ class: center, middle
 
 ```{r child="topics/bp3.Rmd"}
 ```
-
----
-
-class: center, middle
-
-### "Lie Factor" = $\frac{\text{Size of effect in graphic}}{\text{Size of effect in data}}$
-
----
-
-class: center, middle
-
-### "Lie Factor" = $\frac{\text{Size of effect in graphic}}{\text{Size of effect in data}} = \frac{\frac{5.3 - 0.6}{0.6}}{\frac{27.5 - 18}{18}} = \frac{7.83}{0.53} = 14.8$
-
-.leftcol60[.border[
-
-<center>
-<img src="images/tufte-fuel-economy-bad.png">
-</center>
-.font80[.left[Edward Tufte (2001) "The Visual Display of Quantitative Information", 2nd Edition, pg. 57-58.]]
-
-]]
-
---
-
-.rightcol40[.border[
-
-<center>
-<img src="images/tufte-fuel-economy-good.png" width=370>
-</center>
-
-]]
 
 ---
 
@@ -1129,38 +1080,6 @@ Image from http://livingqlikview.com/the-9-worst-data-visualizations-ever-create
 <center>
 <img src="images/check-good.png" width=100>
 .border[<img src="images/barchart_zero.png" width=330px>]
-</center>
-
-]
-
----
-
-class: center, middle
-
-# Don't cherry-pick your data
-
---
-
-.leftcol60[
-
-<center>
-<img src="images/check-bad.png" width=80>
-<img src="images/fox-news-immigration-bars-bad.jpg">
-</center>
-
-.font70[.left[
-
-Image from https://www.mediamatters.org/fox-news/fox-news-newest-dishonest-chart-immigration-enforcement
-
-]]]
-
---
-
-.rightcol40[
-
-<center>
-<img src="images/check-good.png" width=100>
-.border[<img src="images/fox-news-immigration-bars-good.jpg">]
 </center>
 
 ]
@@ -1231,7 +1150,7 @@ background-color: #FFFFFF
 .rightcol55[
 
 <center>
-<img src="images/bundestag-pie-1.png">
+<img src="images/bundestag-pie.png">
 </center>
 
 ]
@@ -1444,7 +1363,7 @@ class: center
 ## Exception: Ordinal variables
 
 <center>
-.border[<img src="images/wildlife-months-bar-1.png" width=900>]
+.border[<img src="images/wildlife-months-bar.png" width=900>]
 </center>
 
 ---
@@ -1468,21 +1387,9 @@ class: center
 
 ### Legends require look-up task
 
-```{r fed_spending_legend, echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
-ggplot(federal_spending_summary) +
-  geom_area(
-    aes(x = year, y = rd_budget, fill = department)) +
-  scale_y_continuous(
-    expand = expand_scale(mult = c(0, 0.05))) +
-  scale_fill_manual(values = c('grey', 'sienna')) +
-  theme_minimal_hgrid() +
-  labs(
-    x = NULL,
-    y = 'R&D Budget ($ Billions)',
-    fill = 'Department',
-    title = 'Federal R&D spending, 1976 - 2017',
-    subtitle = 'Source: AAAS Historical Trends')
-```
+<center>
+<img src="images/fed_spending_legend.png" width=100%>
+</center>
 
 ]
 
@@ -1492,26 +1399,9 @@ ggplot(federal_spending_summary) +
 
 ### Direct labeling is much better
 
-```{r, fed_spending_annotate, echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
-dod_spending <- ggplot(federal_spending_summary) +
-    geom_area(aes(x = year, y = rd_budget,
-                  fill = department)) +
-    annotate(geom = 'text', x = 1995, y = 85,  #<<
-             label = 'Other', size = 6, color = 'black') + #<<
-    annotate(geom = 'text', x = 1995, y = 25, #<<
-             label = 'DOD', size = 6, color = 'white') + #<<
-    scale_y_continuous(
-        expand = expand_scale(mult = c(0, 0.05))) +
-    scale_fill_manual(values = c('grey', 'sienna')) +
-    theme_minimal_hgrid() +
-    theme(legend.position = 'none') +
-    labs(x = NULL,
-         y = 'R&D Budget ($ Billions)',
-         title = 'Federal R&D spending, 1976 - 2017',
-         subtitle = 'Source: AAAS Historical Trends')
-
-dod_spending
-```
+<center>
+<img src="images/fed_spending_annotate.png" width=100%>
+</center>
 
 ]
 
@@ -1555,7 +1445,7 @@ class: center
 
 class: center
 
-## Avoid putting >2 categories in legend (if possible)
+## If you use a legend, use **few categories as possible**
 
 .leftcol[
 
@@ -1760,7 +1650,7 @@ countdown(
 class: middle
 
 <center>
-<img src="images/bad-viz/army_budget.jpg" width=900>
+<img src="images/army_budget_bad.jpg" width=900>
 </center>
 
 ---
@@ -1770,7 +1660,7 @@ class: middle
 .leftcol40[
 
 <center>
-<img src="images/bad-viz/prisoners.png" width=500>
+<img src="images/prisoners_bad.png" width=500>
 </center>
 
 ]
@@ -1792,7 +1682,7 @@ class: middle
 .leftcol40[
 
 <center>
-<img src="images/bad-viz/junk-life-expectancy-bad.png" width=500>
+<img src="images/junk-life-expectancy-bad.png" width=500>
 </center>
 
 ]
@@ -1802,8 +1692,8 @@ class: middle
 .rightcol60[
 
 <center>
-<img src="images/bad-viz/junk-life-expectancy-good1.png" width=400>
-<img src="images/bad-viz/junk-life-expectancy-good2.png" width=400>
+<img src="images/junk-life-expectancy-good1.png" width=400>
+<img src="images/junk-life-expectancy-good2.png" width=400>
 </center>
 
 ]
@@ -1815,7 +1705,7 @@ class: middle
 .leftcol45[
 
 <center>
-<img src="images/bad-viz/bears-bad.png" width=500>
+<img src="images/bears-bad.png" width=500>
 </center>
 
 ]
@@ -1825,7 +1715,7 @@ class: middle
 .rightcol55[
 
 <center>
-<img src="images/bad-viz/bears-good.jpeg" width=600>
+<img src="images/bears-good.jpeg" width=600>
 </center>
 
 ]
@@ -1837,7 +1727,7 @@ class: middle
 .cols3[
 
 <center>
-<img src="images/bad-viz/clinton-tweet-venn-1.png">
+<img src="images/clinton-tweet-venn-1.png">
 </center>
 
 ]
@@ -1847,7 +1737,7 @@ class: middle
 .cols3[
 
 <center>
-<img src="images/bad-viz/clinton-tweet-venn-2.jpg">
+<img src="images/clinton-tweet-venn-2.jpg">
 </center>
 
 ]
@@ -1921,54 +1811,9 @@ Average student engagement scores
 
 **Information**
 
-```{r student-engagement-final, echo=FALSE, fig.width=6, fig.height=5}
-engagement <- data.frame(
-    City   = c(643, 735, 590, 863),
-    County = c(793, 928, 724, 662),
-    School = c('Special Ed., Charter', 'Special Ed., Public',
-               'General Ed., Charter', 'General Ed., Public'),
-    Highlight = c(0, 0, 0, 1)) %>%
-    gather(Location, Engagement, City:County) %>%
-    mutate(
-      Location = fct_relevel(Location, c('City', 'County')),
-      Highlight = as.factor(Highlight),
-      x = ifelse(Location == 'County', 1, 0))
-engagement_plot <- engagement %>%
-    ggplot(aes(x = x, y = Engagement, group = School, color = Highlight)) +
-    geom_point() +
-    geom_line() +
-    scale_color_manual(values = c('#757575', '#ed573e')) +
-    labs(x = 'Sex', y = 'Engagement',
-         title = paste0('Students in public, general education classes\n',
-                        'in county schools have surprisingly low engagement')) +
-    scale_x_continuous(limits = c(-1.2, 1.2), labels = c('City', 'County'),
-                       breaks = c(0, 1)) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'County'),
-                    size          = 5,
-                    nudge_x       = 0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = Engagement, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.1,
-                    segment.color = NA) +
-    geom_text_repel(aes(label = School, color = as.factor(Highlight)),
-                    data          = subset(engagement, Location == 'City'),
-                    size          = 5,
-                    nudge_x       = -0.25,
-                    hjust         = 1,
-                    segment.color = NA) +
-    theme_cowplot() +
-    background_grid(major = 'x') +
-    theme(axis.line = element_blank(),
-          axis.title.x = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.y = element_blank(),
-          axis.ticks = element_blank(),
-          legend.position = 'none')
-engagement_plot
-```
+<center>
+<img src="images/student-engagement-plot.png" width=450>
+</center>
 
 ]
 
@@ -2091,11 +1936,6 @@ Source: https://www.reddit.com/r/dataisugly/comments/odk65x/this_was_not_the_rig
 Source: https://ourworldindata.org/less-meat-or-sustainable-meat
 
 ]
-
-
-
-
-
 
 
 
@@ -2291,7 +2131,7 @@ class: center, middle
 ## Pie charts
 
 <center>
-<img src="images/milk_2017_pie-1.png" width=300>
+<img src="images/milk_2017_pie.png" width=300>
 <center>
 
 ]
@@ -2354,12 +2194,6 @@ class: center
 </center>
 
 .font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]
-
-
-
-
-
-
 
 
 
