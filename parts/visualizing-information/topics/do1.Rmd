@@ -4,7 +4,7 @@ class: inverse
 # .center[5 Data Viz Do's]
 
 ## 1. .orange[Annotate your charts]
-## 2. Eliminate legends & add labels
+## 2. Eliminate legends
 ## 3. Show amounts with bars, dots, and lollipops
 ## 4. Show proportions with bars and waffles (not pies)
-## 5. Show trends with lines and heatmaps
+## 5. Show trends with lines, bars, and heatmaps

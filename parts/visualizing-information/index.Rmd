@@ -27,6 +27,8 @@ library(metathis)
 library(here)
 library(fontawesome)
 
+xaringanExtra::use_freezeframe()
+
 options(
   htmltools.dir.version = FALSE,
   knitr.table.format = "html",
@@ -1265,47 +1267,6 @@ countdown(
 
 ---
 
-class: center, inverse, middle
-
-# **Data Viz Goal**:<br>Translate _data_ into _information_
-
----
-
-class: center
-
-# Translate _data_ into _information_
-
---
-
-.leftcol[
-
-**Data**
-
-Average student engagement scores
-
- Class       | Type | City | County
- ------------|-------------|------|-------
- Special Ed. | Charter     | 643  | 793
- Special Ed. | Public      | 735  | 928
- General Ed. | Charter     | 590  | 724
- General Ed. | Public      | 863  | 662
-
-]
-
---
-
-.rightcol[
-
-**Information**
-
-<center>
-<img src="images/student-engagement-plot.png" width=450>
-</center>
-
-]
-
----
-
 ```{r child="topics/do0.Rmd"}
 ```
 
@@ -1356,43 +1317,7 @@ class: center
 
 <br><br><br><br><br><br><br><br><br><br>
 
-Source: https://ourworldindata.org/less-meat-or-sustainable-meat
-
-]
-
----
-
-
-
-
-
-
-
----
-
-class: middle
-
-<center>
-<img src="images/norman_door.gif" width=900>
-</center>
-
----
-
-.leftcol[
-
-# Norman door (n.):
-
-1. A door where the design tells you to do the opposite of what you're actually supposed to do.
-
-2. A door that gives the wrong signal and needs a sign to correct it.
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/design_of_everyday_things.jpg" width=400>
-</center>
+.font80[https://ourworldindata.org/less-meat-or-sustainable-meat]
 
 ]
 
@@ -1400,346 +1325,24 @@ class: middle
 
 class: center
 
-.leftcol[
-
-# Norman door
+.leftcol70[
 
 <center>
-<img src="images/check-bad.png" width=80>
-<img src="images/norman_door.jpg" width=250>
+<img src="images/measles-line.png" width=100%>
 </center>
 
 ]
 
---
+.rightcol30[
 
-.rightcol[
-
-# Non-Norman door
-
-<center>
-<img src="images/check-good.png" width=100>
-<img src="images/non-norman-door.jpg" width=480>
-</center>
+## Use reference lines to provide context
 
 ]
 
 ---
 
-Match your chart type to your message
-
----
-
-
-
-
-
-
-
-
----
-
-Pies
-
----
-
-class: middle, center
-background-color: #FFFFFF
-
-.leftcol45[
-
-<center>
-<img src="images/check-bad.png" width=80>
-<img src="images/statesPie.png" width=750>
-</center>
-
-]
-
---
-
-.rightcol55[
-
-<center>
-<img src="images/check-good.png" width=100>
-<img src="images/statesBar.png" width=750>
-</center>
-
-]
-
----
-
-class: middle
-background-color: #FFFFFF
-
-.leftcol45[
-
-# Exceptions:
-
-## - Small data
-## - Simple fractions
-## - If sum of parts matters
-
-]
-
---
-
-.rightcol55[
-
-<center>
-<img src="images/bundestag-pie.png">
-</center>
-
-]
-
----
-
-class: middle, center
-background-color: #FFFFFF
-
-# Best pie chart of all time
-
-<center>
-<img src="images/pie-pyramid.png" width=900>
-</center>
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-Stacked Bars
-
----
-
-class: middle, center
-
-# Stacked bars are rarely a good idea
-
-.border[
-<center>
-<img src="images/jr_diamonds_bars_stacked.png" width=700>
-</center>
-]
-
----
-
-class: middle, center
-
-## "Parallel coordinates" plot is a good alternative
-
-.leftcol[.border[
-
-<center>
-<img src="images/jr_diamonds_line_cut.png">
-</center>
-
-]]
-
-.rightcol[.border[
-
-<center>
-<img src="images/jr_diamonds_line_total.png">
-</center>
-
-]]
-
----
-
-class: center
-
-## .center[Where stacking is useful]
-
-.cols3[
-
-<center>
-<img src="images/check-bad.png" width=55>
-<img src="images/milk_2017_bars_stacked_toomany.png" width=300>
-</center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/check-good.png" width=80>
-<img src="images/milk_2017_bars_stacked.png" width=300>
-</center>
-
-]
-
-.cols3[
-
-### **With 2 to 3 groups**
-### Proportions over time
-
-]
-
----
-
-## .center[Where stacking is useful]
-
-.leftcol65[
-
-<center>
-<img src="images/bechdel-stacked.png">
-</center>
-
-.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
-
-]
-
-.rightcol35[
-
-### **With 2 to 3 groups**
-### Proportions over time
-
-]
-
----
-
-## .center[Where stacking is useful]
-
-.leftcol60[
-
-<center>
-<img src="images/Coles-Graph.png" width="600">
-</center>
-
-.font80[https://www.perceptualedge.com/blog/?p=2239]
-
-]
-
-.rightcol40[
-
-### With 2 to 3 groups
-### **Proportions over time**
-
-]
-
----
-
-## .center[Where stacking is useful]
-
-.leftcol60[
-
-<center>
-<img src="images/jr_phones_area.png">
-</center>
-
-]
-
-.rightcol40[
-
-### With 2 to 3 groups
-### **Proportions over time**
-
-]
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-Rotate bars
-
----
-
-class: middle, center
-
-## Rotate axes if you can't read them
-
-.leftcol45[
-
-<center>
-<img src="images/check-bad.png" width=80>
-.border[<img src="images/mpg_bars_bad.png" width=400>]
-</center>
-
-]
-
---
-
-.rightcol55[
-
-<center>
-<img src="images/check-good.png" width=100>
-.border[<img src="images/mpg_bars_flipped.png" width=750>]
-</center>
-
-]
-
----
-
-class: middle, center
-
-## Default order is almost always wrong
-
-.leftcol[
-
-<center>
-<img src="images/check-bad.png" width=80>
-Ordered by alphabet (default)
-.border[<img src="images/mpg_bars_flipped.png">]
-</center>
-
-]
-
---
-
-.rightcol[
-
-<center>
-<img src="images/check-good.png" width=100>
-Ordered by count
-.border[<img src="images/mpg_bars_flipped_sorted.png">]
-</center>
-
-]
-
----
-
-class: center
-
-## Exception: Ordinal variables
-
-<center>
-.border[<img src="images/wildlife-months-bar.png" width=900>]
-</center>
-
----
-
-
-
-
-
----
-
-Eliminate legends
+```{r child="topics/do2.Rmd"}
+```
 
 ---
 
@@ -1857,6 +1460,543 @@ class: center
 
 ]
 
+---
+
+```{r child="topics/do3.Rmd"}
+```
+
+---
+
+class: middle
+
+<center>
+<img src="images/norman_door.gif" width=900>
+</center>
+
+---
+
+.leftcol[
+
+# Norman door (n.):
+
+1. A door where the design tells you to do the opposite of what you're actually supposed to do.
+
+2. A door that gives the wrong signal and needs a sign to correct it.
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/design_of_everyday_things.jpg" width=400>
+</center>
+
+]
+
+---
+
+class: center
+
+.leftcol[
+
+# Norman door
+
+<center>
+<img src="images/check-bad.png" width=80>
+<img src="images/norman_door.jpg" width=250>
+</center>
+
+]
+
+--
+
+.rightcol[
+
+# Non-Norman door
+
+<center>
+<img src="images/check-good.png" width=100>
+<img src="images/non-norman-door.jpg" width=480>
+</center>
+
+]
+
+---
+
+Match your chart type to your message
+
+---
+
+class: inverse, middle, center
+
+# Show amounts with:
+
+.cols3[
+
+<br>
+<center>
+<img src="images/bar.png" width=350>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/dots.png" width=280>
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/lollipop.png">
+<center>
+
+]
+
+---
+
+class: center, middle
+
+.cols3[
+
+<center>
+<img src="images/bar.png">
+<center>
+
+## Bar chart
+
+<center>
+<img src="images/federal_spending_bars.png">
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/dots.png" width=160>
+<center>
+
+## Dot chart
+
+<center>
+<img src="images/federal_spending_dots.png">
+<center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/lollipop_rotated.png" width=330>
+<center>
+
+## Lollipop chart
+
+<center>
+<img src="images/federal_spending_lollipop.png">
+<center>
+
+]
+
+---
+
+class: center
+
+## Bars are good for highlighting specific categories
+
+<center>
+<img src="images/federal_spending_bars_highlight_title.png" width=700>
+<center>
+
+---
+
+class: middle, center
+
+## Rotate axes if you can't read them
+
+.leftcol45[
+
+<center>
+<img src="images/check-bad.png" width=80>
+.border[<img src="images/mpg_bars_bad.png" width=400>]
+</center>
+
+]
+
+--
+
+.rightcol55[
+
+<center>
+<img src="images/check-good.png" width=100>
+.border[<img src="images/mpg_bars_flipped.png" width=750>]
+</center>
+
+]
+
+---
+
+class: middle, center
+
+## Default order is almost always wrong
+
+.leftcol[
+
+<center>
+<img src="images/check-bad.png" width=80>
+Ordered by alphabet (default)
+.border[<img src="images/mpg_bars_flipped.png">]
+</center>
+
+]
+
+--
+
+.rightcol[
+
+<center>
+<img src="images/check-good.png" width=100>
+Ordered by count
+.border[<img src="images/mpg_bars_flipped_sorted.png">]
+</center>
+
+]
+
+---
+
+class: center
+
+## Exception: When the order matters
+
+<center>
+.border[<img src="images/wildlife-months-bar.png" width=900>]
+</center>
+
+---
+
+## Use lollipops when:
+
+### - The bars are overwhelming<br> - You're not highlighting categories
+
+<!-- Idea from https://www.data-to-viz.com/graph/lollipop.html -->
+
+.leftcol[
+
+<center>
+<img src="images/life_expectancy_bars.png" width=400>
+<center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/life_expectancy_lollipop.png" width=400>
+<center>
+
+]
+
+---
+
+class: center
+
+## Or use dots
+
+.leftcol[
+
+<center>
+<img src="images/life_expectancy_lollipop.png" width=500>
+<center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/life_expectancy_dots.png" width=500>
+<center>
+
+]
+
+---
+
+```{r child="topics/do4.Rmd"}
+```
+
+---
+
+class: inverse, middle, center
+
+# Show proportions with:
+
+.leftcol[
+
+<br>
+<center>
+<img src="images/bar.png" width=350>
+<center>
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/waffles.png" width=400>
+<center>
+
+]
+
+---
+
+class: center, middle
+
+.leftcol[
+
+# Bar charts
+
+<center>
+<img src="images/milk_2017_bars_stacked_rotated.png">
+<center>
+
+]
+
+.rightcol[
+
+# Waffle charts
+
+<center>
+<img src="images/milk_waffle_2017.png" width=450>
+<center>
+
+]
+
+---
+
+class: middle, center
+
+# Stacked bars are rarely a good idea
+
+---
+
+class: middle, center
+
+# Stacked bars are rarely a good idea
+
+.border[
+<center>
+<img src="images/jr_diamonds_bars_stacked.png" width=700>
+</center>
+]
+
+---
+
+class: middle, center
+
+## "Parallel coordinates" plot is a good alternative
+
+<center>
+<img src="images/jr_diamonds_line_cut.png" width=750>
+</center>
+
+---
+
+class: center
+
+## .center[Where stacking is useful]
+
+.cols3[
+
+<center>
+<img src="images/check-bad.png" width=55>
+<img src="images/milk_2017_bars_stacked_toomany.png" width=300>
+</center>
+
+]
+
+.cols3[
+
+<center>
+<img src="images/check-good.png" width=80>
+<img src="images/milk_2017_bars_stacked.png" width=300>
+</center>
+
+]
+
+.cols3[
+
+### **With 2 to 3 groups**
+### Proportions over time
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol65[
+
+<center>
+<img src="images/bechdel-stacked.png">
+</center>
+
+.font70[https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/]
+
+]
+
+.rightcol35[
+
+### With 2 to 3 groups
+### **Proportions over time**
+
+]
+
+---
+
+## .center[Where stacking is useful]
+
+.leftcol65[
+
+<center>
+<img src="images/jr_phones_area.png">
+</center>
+
+]
+
+.rightcol35[
+
+### With 2 to 3 groups
+### **Proportions over time**
+
+]
+
+---
+
+class: middle, center
+
+# Pies are rarely a good idea
+
+---
+
+class: middle, center
+background-color: #FFFFFF
+
+.leftcol45[
+
+<center>
+<img src="images/check-bad.png" width=80>
+<img src="images/statesPie.png" width=750>
+</center>
+
+]
+
+--
+
+.rightcol55[
+
+<center>
+<img src="images/check-good.png" width=100>
+<img src="images/statesBar.png" width=750>
+</center>
+
+]
+
+---
+
+class: middle
+background-color: #FFFFFF
+
+.leftcol45[
+
+# Exceptions:
+
+## - Small data
+## - Simple fractions
+## - If sum of parts matters
+
+]
+
+--
+
+.rightcol55[
+
+<center>
+<img src="images/bundestag-pie.png">
+</center>
+
+]
+
+---
+
+class: middle, center
+background-color: #FFFFFF
+
+# Best pie chart of all time
+
+<center>
+<img src="images/pie-pyramid.png" width=900>
+</center>
+
+---
+
+background-color: #fff 
+class: center
+
+## The best pies are **square pies**
+
+<center>
+<img src="images/square-pies-rule.png" width="750">
+</center>
+
+.font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]
+
+---
+
+class: middle
+
+.leftcol60[
+
+<center>
+<img src="images/milk-waffle.png" width=100%>
+</center>
+
+]
+
+.rightcol40[
+
+# Waffles make rough comparisons easy
+
+]
+
+---
+
+```{r child="topics/do5.Rmd"}
+```
+
+---
+
+class: center
+
+# Lines are good for small number of categories
+
+.leftcol[
+
+
+
+]
+
+.rightcol[
+
+<center>
+<img src="images/milk_region_label.png" width=100%>
+</center>
+
+]
+
+
 
 
 
@@ -1870,8 +2010,9 @@ class: center
 
 ---
 
-```{r child="topics/bp10.Rmd"}
-```
+class: middle, inverse, center
+
+Consider using tables for small data
 
 ---
 
@@ -2057,260 +2198,9 @@ class: middle
 
 
 
----
-
-class: inverse, middle, center
-
-# Show amounts with:
-
-.cols3[
-
-<br>
-<center>
-<img src="images/bar.png" width=350>
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/dots.png" width=280>
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/lollipop.png">
-<center>
-
-]
 
 ---
 
-class: center, middle
-
-.cols3[
-
-<center>
-<img src="images/bar.png">
-<center>
-
-## Bar chart
-
-<center>
-<img src="images/federal_spending_bars.png">
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/dots.png" width=160>
-<center>
-
-## Dot chart
-
-<center>
-<img src="images/federal_spending_dots.png">
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/lollipop_rotated.png" width=330>
-<center>
-
-## Lollipop chart
-
-<center>
-<img src="images/federal_spending_lollipop.png">
-<center>
-
-]
-
----
-
-class: center
-
-## Bars are good for highlighting specific categories
-
-<center>
-<img src="images/federal_spending_bars_highlight_title.png" width=700>
-<center>
-
----
-
-## Use lollipops when:
-
-### - The bars are overwhelming<br> - You're not highlighting categories
-
-<!-- Idea from https://www.data-to-viz.com/graph/lollipop.html -->
-
-.leftcol[
-
-<center>
-<img src="images/life_expectancy_bars.png" width=400>
-<center>
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/life_expectancy_lollipop.png" width=400>
-<center>
-
-]
-
----
-
-class: center
-
-## Or use dots and don't set axis to 0
-
-.leftcol[
-
-<center>
-<img src="images/life_expectancy_lollipop.png" width=500>
-<center>
-
-]
-
-.rightcol[
-
-<center>
-<img src="images/life_expectancy_dots.png" width=500>
-<center>
-
-]
-
----
-
-class: inverse, middle, center
-
-# Show proportions with:
-
-.cols3[
-
-<br>
-<center>
-<img src="images/bar.png" width=350>
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/pie.png" width=300>
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/waffles.png">
-<center>
-
-]
-
----
-
-class: center, middle
-
-.cols3[
-
-<center>
-<img src="images/bar.png">
-<center>
-
-## Bar charts
-
-<center>
-<img src="images/milk_2017_bars_stacked_rotated.png">
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/pie.png" width=160>
-<center>
-
-## Pie charts
-
-<center>
-<img src="images/milk_2017_pie.png" width=300>
-<center>
-
-]
-
-.cols3[
-
-<center>
-<img src="images/waffles.png" width=180>
-<center>
-
-## Waffle charts
-
-<center>
-<img src="images/milk_waffle_2017.png" width=300>
-<center>
-
-]
-
----
-
-class: center
-
-## Pies are still useful if the sum of components matters
-
-.cols3[
-
-<center>
-<img src="images/bundestag-bars-stacked.png" width=250>
-<center>
-
-]
-
-.cols3[
-
-<br>
-<center>
-<img src="images/bundestag-bars-dodged.png">
-<center>
-
-]
-
-.cols3[
-
-<br>
-<br>
-<center>
-<img src="images/bundestag-pie.png">
-<center>
-
-]
-
----
-
-class: center
-
-## The best pies are **square pies**
-
-<center>
-<img src="images/square-pies-rule.png" width="700">
-</center>
-
-.font80[https://eagereyes.org/blog/2016/a-reanalysis-of-a-study-about-square-pie-charts-from-2009]
 
 
 
