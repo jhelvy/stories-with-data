@@ -89,76 +89,6 @@ class: middle, center
 
 ---
 
-class: middle
-
-.border[
-<center>
-<img src="images/graphQuality.png" width=900>
-</center>
-]
-
----
-
-class: middle
-
-<center>
-<img src="images/chart-quality.jpg" width=900>
-</center>
-
-.left[
-
-From [here](https://psyteachr.github.io/msc-data-skills/ggplot.html)
-
-]
-
----
-
-class: inverse, middle
-
-.rightcol80[
-
-# "_Having word processing software<br>doesn't make us great writers._"
-
-## — Stephen Few
-
-]
-
----
-
-class: center
-
-.leftcol[
-
-# We don't write paragraphs like this
-
-<center>
-<img src="images/bad_text.png">
-</center>
-
-.left[.font80[
-
-Image from Few (2012, pg. 227)
-
-]]]
-
---
-
-.rightcol[
-
-# So don't make<br>graphs like this
-
-<center>
-<img src="images/bad_3d_bars.png" width=400>
-</center>
-
-.center[.font80[
-
-Image from excelcharts.com
-
-]]]
-
----
-
 ```{r child="topics/0.Rmd"}
 ```
 
@@ -494,7 +424,7 @@ gapminder %>%
     filter(year == max(year)) %>%
     # Removing a "middle" country so that it's just 32 countries
     filter(country != "Sri Lanka") %>%
-    mutate(country = ifelse(country == "Korea, Rep.", "Korea", country)) %>%
+    mutate(country = ifelse(country == "Korea, Rep.", "Korea", as.character(country))) %>%
     arrange(lifeExp) %>%
     dplyr::select(country, lifeExp) %>%
     as.data.frame()
@@ -578,9 +508,9 @@ class: middle
 
 <br>
 
-- `r fa("check-square", fill = "green")` / `r fa("times", fill = "red")` **Discriminate**
-- `r fa("check-square", fill = "green")` / `r fa("times", fill = "red")` **Rank**
-- `r fa("check-square", fill = "green")` **Ratio**
+- `r fa("check", fill = "green")` / `r fa("times", fill = "red")` **Discriminate**
+- `r fa("check", fill = "green")` / `r fa("times", fill = "red")` **Rank**
+- `r fa("check", fill = "green")` **Ratio**
 
 ]
 
@@ -608,9 +538,9 @@ class: middle
 
 <br>
 
-- `r fa("check-square", fill = "green")` / `r fa("times", fill = "red")` **Discriminate**
-- `r fa("check-square", fill = "green")` / `r fa("times", fill = "red")` **Rank**
-- `r fa("check-square", fill = "green")` **Ratio**
+- `r fa("check", fill = "green")` / `r fa("times", fill = "red")` **Discriminate**
+- `r fa("check", fill = "green")` / `r fa("times", fill = "red")` **Rank**
+- `r fa("check", fill = "green")` **Ratio**
 
 ]
 
@@ -638,9 +568,9 @@ class: middle
 
 <br>
 
-- `r fa("check-square", fill = "green")` **Discriminate**
-- `r fa("check-square", fill = "green")` **Rank**
-- `r fa("check-square", fill = "green")` **Ratio**
+- `r fa("check", fill = "green")` **Discriminate**
+- `r fa("check", fill = "green")` **Rank**
+- `r fa("check", fill = "green")` **Ratio**
 
 ]
 
@@ -1524,7 +1454,9 @@ class: center
 
 ---
 
-Match your chart type to your message
+class: inverse, middle, center
+
+# Match your chart type to your message
 
 ---
 
