@@ -10,3 +10,5 @@ Authors@R: c(
 Depends: R (>= 4.0.2)
 License: CC-BY-SA
 Encoding: UTF-8
+Imports:
+    rmarkdown
