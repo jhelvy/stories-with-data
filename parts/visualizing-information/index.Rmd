@@ -16,15 +16,16 @@ output:
       ratio: "16:9"
 ---
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
+
 library(knitr)
 library(tidyverse)
-library(fontawesome)
 library(countdown)
-library(cowplot)
 library(metathis)
 library(here)
-library(ggrepel)
+library(fontawesome)
 
 options(
   htmltools.dir.version = FALSE,
@@ -45,15 +46,6 @@ knitr::opts_chunk$set(
   fig.retina = 3
 )
 
-# Setup xaringanExtra options
-xaringanExtra::use_xaringan_extra(c(
-  "tile_view", "panelset", "clipboard", "share_again"))
-xaringanExtra::style_share_again(share_buttons = "none")
-xaringanExtra::use_extra_styles(
-  hover_code_line = TRUE,
-  mute_unhighlighted_code = FALSE
-)
-
 # Set up website metadata
 meta() %>%
   meta_general(
@@ -69,9 +61,6 @@ meta() %>%
     twitter_card_type = "summary_large_image",
     twitter_creator = "@johnhelveston"
   )
-
-# Read in data
-gapminder <- read_csv(here('data', 'gapminder.csv'))
 ```
 
 background-image: url("images/nasa_global_preview.png")
@@ -557,7 +546,7 @@ class: middle
 Sorting helps a bit...
 
 - `r fa("times", fill = "red")` **Discriminate**
-- `r fa("check-square", fill = "green")` **Rank**
+- `r fa("check", fill = "green")` **Rank**
 - `r fa("times", fill = "red")` **Ratio**
 
 ]
