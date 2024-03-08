@@ -26,6 +26,7 @@ library(countdown)
 library(metathis)
 library(here)
 library(fontawesome)
+library(gapminder)
 
 xaringanExtra::use_freezeframe()
 

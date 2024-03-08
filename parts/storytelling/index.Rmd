@@ -810,7 +810,7 @@ class: middle, inverse, center
 
 --
 
-### 2. With a shocking factoid ("40k people died in car accidents last year").
+### 2. With a shocking factoid ("40k people die in car accidents every year...").
 
 --
 
@@ -879,10 +879,8 @@ countdown(
 )
 ```
 
-Brainstorm different strategies for how to start your presentation for your projects:
+Brainstorm different strategies for how to start a presentation you are working on:
 
 1. Tell a story, talk about **people** ("Imagine...").
-2. With a **factoid** ("There are more people alive today than have ever lived...").
+2. With a **factoid** ("40k people die in car accidents every year...").
 3. With a **question** that matters to the audience ("Have you ever...?").
-
-Afterwards, we will go around and practice giving the start of each presentation.
