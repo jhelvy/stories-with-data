@@ -6,8 +6,8 @@ class: inverse
 ## 1. Annotate your charts
 ## 2. Eliminate legends
 
-## .center[Match your chart type to your message]
+## .center[.orange[Match your chart type to your message]]
 
-## 3. .orange[Show amounts with bars, dots, and lollipops]
+## 3. Show amounts with bars, dots, and lollipops
 ## 4. Show proportions with bars and waffles (not pies)
 ## 5. Show trends with lines, bars, and heatmaps
