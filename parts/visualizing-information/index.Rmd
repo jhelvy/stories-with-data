@@ -1980,13 +1980,19 @@ class: middle
 
 class: center
 
-# Lines are good for small number of categories
+# For small number of categories, **lines work**
 
 .leftcol[
 
+<center>
+<img src="images/GlobalTemp.png" width=100%>
+</center>
 
+.font80[https://climate.nasa.gov/vital-signs/global-temperature/]
 
 ]
+
+--
 
 .rightcol[
 
@@ -1996,23 +2002,98 @@ class: center
 
 ]
 
+---
 
+class: center
 
+# For small number of categories, **bars work**
 
+<center>
+<img src="images/hotdog-bar-winner.png" width=600>
+</center>
 
+---
 
+class: center
 
+## With many categories, lines don't work
 
+<center>
+<img src="images/internet_region_line_label.png" width=750>
+</center>
 
+---
 
+class: center
 
+## With many categories, **summary lines work**
 
+<center>
+<img src="images/measles-line.png" width=600>
+</center>
+
+---
+
+class: center
+
+## With many categories, **heatmaps work**
+
+<center>
+<img src="images/measles-heatmap.png" width=700>
+</center>
+
+---
+
+class: center, middle, inverse
+
+# Bonus suggestions!
+
+---
+
+class: center
+
+## With **more than 2** things, dodged bars can get confusing
+
+Still comparing 2 time periods, but across **10** categories
+
+<center>
+<img src="images/milk-compare-dodged-toomany.png" width=600>
+</center>
+
+---
+
+.leftcol[
+
+Dumbbell charts highlight:
+
+- Compare **magnitudes** across two periods / groups
+
+<center>
+<img src="images/milk-dumbbell.png" width=450>
+</center>
+
+]
+
+--
+
+.rightcol[
+
+Slope charts highlight:
+
+- _Change_ in **rankings**
+- Highlight individual categories
+
+<center>
+<img src="images/milk-slope.png" width=450>
+</center>
+
+]
 
 ---
 
 class: middle, inverse, center
 
-Consider using tables for small data
+# Consider using tables for small data
 
 ---
 
@@ -2175,73 +2256,6 @@ class: middle
 
 <center>
 <img src="images/backgroundChecks.png">
-</center>
-
-]
-
----
-
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-
----
-
-class: center
-
-## With **more than 2** things, dodged bars can get confusing
-
-Still comparing 2 time periods, but across **10** categories
-
-<center>
-<img src="images/milk-compare-dodged-toomany.png" width=600>
-</center>
-
----
-
-.leftcol[
-
-Dumbbell charts highlight:
-
-- Compare **magnitudes** across two periods / groups
-
-<center>
-<img src="images/milk-dumbbell.png" width=450>
-</center>
-
-]
-
---
-
-.rightcol[
-
-Slope charts highlight:
-
-- _Change_ in **rankings**
-- Highlight individual categories
-
-<center>
-<img src="images/milk-slope.png" width=450>
 </center>
 
 ]
